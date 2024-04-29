@@ -11,26 +11,42 @@ public class Bank : MonoBehaviour
     private string moneyToGainString;
     private int moneyToGainInt;
     private int moneyAmountInt;
-    private int s;
     private void Update()
     {
         moneyAmount.text = PlayerPrefs.GetString("moneyAmount");
     }
 
-    public void GainMoney() 
+    public void GainMoney()
     {
         moneyAmountString = moneyAmount.text;
         moneyToGainString = moneyToGainFromPurchase.text;
         moneyToGainInt = int.Parse(moneyAmountString);
         moneyAmountInt = int.Parse(moneyToGainString);
 
-        moneyAmount.text =  (moneyAmountInt + moneyToGainInt).ToString();
+        moneyAmount.text = (moneyAmountInt + moneyToGainInt).ToString();
         PlayerPrefs.SetString("moneyAmount", moneyAmount.text);
     }
+
     public void AddMoneyFromChest(int random)
     {
-        s = int.Parse(moneyAmount.text);
-        moneyAmount.text = (s + random).ToString();
+        moneyAmountInt = int.Parse(moneyAmount.text);
+        moneyAmount.text = (moneyAmountInt + random).ToString();
         PlayerPrefs.SetString("moneyAmount", moneyAmount.text);
+    }
+
+    public bool RemoveMoney(int amount)
+    {
+        moneyAmountInt = int.Parse(moneyAmount.text);
+        if(amount < moneyAmountInt) 
+        {
+            moneyAmount.text = (moneyAmountInt - amount).ToString();
+            PlayerPrefs.SetString("moneyAmount", moneyAmount.text);
+
+            return true;
+        }
+        else
+        {       
+            return false;
+        }
     }
 }

@@ -13,7 +13,6 @@ public class ChestOnClick : MonoBehaviour
     }    
     public void ChestClick()
     {
-        Debug.Log("dsa");
         bank.AddMoneyFromChest(random);
     }
 }

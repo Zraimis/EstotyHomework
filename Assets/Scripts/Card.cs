@@ -1,8 +1,9 @@
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TaskManager : MonoBehaviour
+public class Card : MonoBehaviour
 {
     [HideInInspector] public Image progressBar;
     [SerializeField] private TMP_Text progressText;
@@ -39,7 +40,6 @@ public class TaskManager : MonoBehaviour
                 background.sprite = newBackgroundSprite;
                 amountPanel.sprite = newAmountPanelSprite;
             }
-
             else
             {
                 progressText.text = $"{currentAmount}/{maxAmount}";
@@ -66,6 +66,10 @@ public class TaskManager : MonoBehaviour
                 chestImage.color = Color.white;
                 currentActivityPoints = 0;
                 progressBar.fillAmount = 0f;
+            }
+            else
+            {
+                chestImage.color = Color.gray;
             }
             PlayerPrefs.SetInt("currentPoints",currentActivityPoints);
             PlayerPrefs.SetFloat("fillAmount", progressBar.fillAmount);

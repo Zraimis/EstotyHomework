@@ -1338,6 +1338,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041292736}
   m_CullTransparentMesh: 1
+--- !u!1 &1046905215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1046905216}
+  m_Layer: 0
+  m_Name: ClickArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1046905216
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046905215}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1443158241}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1075747244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1921,9 +1956,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2026,19 +2061,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1896608506}
-        m_TargetAssemblyTypeName: SpawnTasks, Assembly-CSharp
-        m_MethodName: SpawnTasksOnSlots
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1443158240
 GameObject:
   m_ObjectHideFlags: 0
@@ -2051,6 +2074,7 @@ GameObject:
   - component: {fileID: 1443158244}
   - component: {fileID: 1443158243}
   - component: {fileID: 1443158242}
+  - component: {fileID: 1443158245}
   m_Layer: 0
   m_Name: PayForPointsButton
   m_TagString: Untagged
@@ -2070,6 +2094,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1046905216}
   - {fileID: 752042907}
   - {fileID: 1248637469}
   - {fileID: 1836170544}
@@ -2123,7 +2148,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1443158243}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1443158245}
+        m_TargetAssemblyTypeName: OnClickResetAll, Assembly-CSharp
+        m_MethodName: OnClickReset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1443158243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2138,9 +2175,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.20281231, g: 0.79622644, b: 0.28056997, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2162,6 +2199,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443158240}
   m_CullTransparentMesh: 1
+--- !u!114 &1443158245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443158240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295b19defe125ca49a7afc20f01bed92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bank: {fileID: 1172292202}
+  spawnCards: {fileID: 1896608506}
+  costAmount: {fileID: 1836170545}
 --- !u!1 &1454894337
 GameObject:
   m_ObjectHideFlags: 0
@@ -2368,8 +2420,9 @@ GameObject:
   - component: {fileID: 1635637991}
   - component: {fileID: 1635637993}
   - component: {fileID: 1635637992}
+  - component: {fileID: 1635637994}
   m_Layer: 0
-  m_Name: TimeLeft
+  m_Name: TimerReset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2491,6 +2544,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635637990}
   m_CullTransparentMesh: 1
+--- !u!114 &1635637994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635637990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5adba4539765274ca731dd05de5bda7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: {fileID: 1635637992}
+  spawnCards: {fileID: 1896608506}
 --- !u!1 &1645921053
 GameObject:
   m_ObjectHideFlags: 0
@@ -2619,7 +2686,6 @@ GameObject:
   - component: {fileID: 1836170544}
   - component: {fileID: 1836170546}
   - component: {fileID: 1836170545}
-  - component: {fileID: 1836170547}
   m_Layer: 0
   m_Name: CostOfPoints
   m_TagString: Untagged
@@ -2743,27 +2809,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836170543}
   m_CullTransparentMesh: 1
---- !u!95 &1836170547
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1836170543}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c953b2effd1ed9c40b66351d392929b8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1896608499
 GameObject:
   m_ObjectHideFlags: 0
@@ -2908,7 +2953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progressBar: {fileID: 2093234345}
-  spawnObject: {fileID: 1470803564121055406, guid: 1b4eb98ad80d6194a9892f696ded9fbf, type: 3}
+  spawnCard: {fileID: -2794849748866416316, guid: 1b4eb98ad80d6194a9892f696ded9fbf, type: 3}
   buttonSpawn: {fileID: 1896608505}
   activityPoointsPanelText: {fileID: 720427518}
   chestClickArea: {fileID: 526944394}
