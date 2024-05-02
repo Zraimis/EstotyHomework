@@ -4,7 +4,7 @@ using DG.Tweening;
 public class DotTweenButtonAnimation : MonoBehaviour
 {
     [SerializeField]
-    private float fadeTime = 1f;
+    private float fadeTime;
 
     private void Start()
     {
@@ -14,6 +14,6 @@ public class DotTweenButtonAnimation : MonoBehaviour
     {
         int taskAmount = transform.GetSiblingIndex();
         transform.localScale = Vector3.zero;
-        transform.DOScale(1f, fadeTime).SetEase(Ease.OutBounce).SetDelay(1*(taskAmount*0.25f));
+        transform.DOScale(1f, fadeTime).SetEase(Ease.OutBounce);
     }
 }
