@@ -4,29 +4,50 @@ using UnityEngine;
 
 public class TimerReset : MonoBehaviour
 {
-    [SerializeField] private TMP_Text timer;
-    [SerializeField] private SpawnCards spawnCards;
-    private float startTime = 5f;
+    [SerializeField] private TMP_Text timerText;
+    [SerializeField] private OnClickResetAll resetActivities;
+    [SerializeField] private GameObject timer;
+    private float startTime = 10f;
     private float timerTime;
+    private float hours;
+    private float minutes;
+    private float seconds;
     void Start()
     {
-        timer.text = startTime.ToString();
-        timerTime = startTime;
+        if (resetActivities.IsFree())
+        {
+            timer.SetActive(false);
+        }
+        else 
+        {
+            timerTime = PlayerPrefs.GetFloat("timerTime"); 
+        }
+        
+
     }
     void Update()
     {
         if (timerTime < 0f) 
         {
-            spawnCards.ResetCards();
-            timerTime = startTime;
+            
+            resetActivities.SetFree();
+            timer.SetActive(false);
+            
         }
         else
         {
             timerTime -= Time.deltaTime;
-            float hours = TimeSpan.FromSeconds(timerTime).Hours; 
-            float minutes =TimeSpan.FromSeconds(timerTime).Minutes; 
-            float seconds = TimeSpan.FromSeconds(timerTime).Seconds;
-            timer.text = $"New activities in: {hours}h{minutes}m{seconds}s";
+            hours = TimeSpan.FromSeconds(timerTime).Hours; 
+            minutes = TimeSpan.FromSeconds(timerTime).Minutes; 
+            seconds = TimeSpan.FromSeconds(timerTime).Seconds;
+
+            timerText.text = $"New activities in: {hours}h{minutes}m{seconds}s";
+            PlayerPrefs.SetFloat("timerTime",timerTime);
         }       
+    }
+    public void ResetTimer()
+    {
+        timer.SetActive(true);
+        timerTime = startTime;
     }
 }

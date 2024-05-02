@@ -1,10 +1,22 @@
-using System;
-using System.Collections;
 using TMPro;
 using UnityEngine;
 
 public class Bank : MonoBehaviour
 {
+    public static Bank Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
     [SerializeField] private TMP_Text moneyAmount;
     [HideInInspector] public TMP_Text moneyToGainFromPurchase;
     private string moneyAmountString;
@@ -37,7 +49,7 @@ public class Bank : MonoBehaviour
     public bool RemoveMoney(int amount)
     {
         moneyAmountInt = int.Parse(moneyAmount.text);
-        if(amount < moneyAmountInt) 
+        if(amount <= moneyAmountInt) 
         {
             moneyAmount.text = (moneyAmountInt - amount).ToString();
             PlayerPrefs.SetString("moneyAmount", moneyAmount.text);

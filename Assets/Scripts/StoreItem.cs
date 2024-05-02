@@ -1,25 +1,37 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StoreItem : MonoBehaviour
 {
-    [SerializeField] private TMP_Text moneyToGainFromPurchase;
+    [SerializeField] public TMP_Text moneyToGainFromPurchase;
     [SerializeField] private GameObject moneyToGainObject;
-    [HideInInspector] public Bank bank;
     [SerializeField] private GameObject discountBanner;
     [SerializeField] private GameObject oldAmount;
     [SerializeField] private GameObject oldAmountPanel;
-    [SerializeField] private TMP_Text oldAmountText;
+    [SerializeField] public TMP_Text OldAmountText;
+    public TMP_Text BuyCost;
+    public TMP_Text DiscountAmount;
+    public Image MoneyIcon;
 
     public void OnClickBuy()
     {
-        bank.moneyToGainFromPurchase = moneyToGainFromPurchase;
-        bank.GainMoney();
+        Bank.Instance.moneyToGainFromPurchase = moneyToGainFromPurchase;
+        Bank.Instance.GainMoney();
         moneyToGainObject.transform.SetParent(oldAmountPanel.transform);
-        moneyToGainObject.transform.localPosition = new Vector3(12.5f, 7f, 0f);
+        if (moneyToGainFromPurchase.text.Length >= 4)
+        {
+            moneyToGainFromPurchase.fontSize = 45;
+            moneyToGainObject.transform.localPosition = new Vector3(30f, 7f, 0f);
+        }
+        else
+        {
+            moneyToGainFromPurchase.fontSize = 50;
+            moneyToGainObject.transform.localPosition = new Vector3(20f, 7f, 0f);
+        }
+        
 
-        moneyToGainFromPurchase.text = oldAmountText.text;
-
+        moneyToGainFromPurchase.text = OldAmountText.text;
         Destroy(oldAmount);
         Destroy(discountBanner);
         

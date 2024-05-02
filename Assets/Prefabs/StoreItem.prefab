@@ -135,8 +135,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -346,8 +346,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -581,11 +581,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyToGainFromPurchase: {fileID: 9211967374911696586}
   moneyToGainObject: {fileID: 244999528132169083}
-  bank: {fileID: 0}
   discountBanner: {fileID: 324518813929274212}
   oldAmount: {fileID: 869898961562893452}
   oldAmountPanel: {fileID: 3171607442377364067}
-  oldAmountText: {fileID: 3720151628939474084}
+  OldAmountText: {fileID: 3720151628939474084}
+  BuyCost: {fileID: 3029519235044064208}
+  DiscountAmount: {fileID: 2418317163177072089}
+  MoneyIcon: {fileID: 1261880971638623249}
 --- !u!1 &1773193421630266404
 GameObject:
   m_ObjectHideFlags: 0

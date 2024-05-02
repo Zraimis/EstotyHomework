@@ -1,18 +1,20 @@
 using UnityEngine;
-using DG.Tweening;
+
 
 public class ButtonSpawn  : MonoBehaviour
 {
     [SerializeField]
-    GameObject spawnObject;
-    public int slotCount = 12;
-    void Start()
-    {
-        
+    Slot spawnObject;
+    private int slotCount;
+    void Awake()
+    {      
+        slotCount = 2;
         for (int i = 0 ; i <= slotCount; i++) 
         {
-            GameObject s = Instantiate(spawnObject);
-            s.transform.SetParent(transform, false);  
+            Slot slot = Instantiate(spawnObject);
+            slot.transform.SetParent(transform, false);
+            slot.id = i;
+            GridManager.Instance.GetSlots(slot);
         }       
     }
     public int GetSlotCount()

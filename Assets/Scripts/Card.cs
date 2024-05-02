@@ -1,5 +1,4 @@
 using TMPro;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,15 +13,16 @@ public class Card : MonoBehaviour
     [SerializeField] private Sprite newAmountPanelSprite;
     [SerializeField] private TMP_Text activityPointsText;
     [HideInInspector] public TMP_Text activityPointsPanelText;
-    [HideInInspector] public GameObject chestClickArea;
-    [HideInInspector] public Image chestImage;
+    [SerializeField] public Image logo;
+    [SerializeField] public TMP_Text cardTitle;
+    [HideInInspector] public Chest chest;
 
-    private int activityPoints = 20; // How much you will gain by completing task
-    private int currentActivityPoints = 0; // Current Points
-    private int currentAmount = 0; // Current amount achieved of task
-    private int maxAmount = 10; // How much needs to be achieved
-    private bool isClaimable = false;
-
+    public int activityPoints;
+    private int currentActivityPoints;
+    public bool isClaimable;
+    public int currentAmount;
+    public int maxAmount;
+    public int id;
     private void Update()
     {
         currentActivityPoints = PlayerPrefs.GetInt("currentPoints");
@@ -44,7 +44,7 @@ public class Card : MonoBehaviour
             {
                 progressText.text = $"{currentAmount}/{maxAmount}";
             }
-        }     
+        }
     }
 
     public void OnClaimClick()
@@ -58,23 +58,29 @@ public class Card : MonoBehaviour
             activityPointsPanelText.text = (currentActivityPoints + activityPoints).ToString();
             currentActivityPoints += activityPoints;
 
-            progressBar.fillAmount += activityPoints/100f;
+            UpdateProgressBar();
 
             if(progressBar.fillAmount >= 1f)
             {
-                chestClickArea.SetActive(true);
-                chestImage.color = Color.white;
-                currentActivityPoints = 0;
-                progressBar.fillAmount = 0f;
+                ResetProgessBar();
+                chest.ChestUnlock();
             }
-            else
-            {
-                chestImage.color = Color.gray;
-            }
+            
             PlayerPrefs.SetInt("currentPoints",currentActivityPoints);
             PlayerPrefs.SetFloat("fillAmount", progressBar.fillAmount);
 
+            GridManager.Instance.UpdateGrid(id);
             Destroy(gameObject);
         }          
+    }
+    public void ResetProgessBar()
+    {
+        currentActivityPoints = 0;
+        progressBar.fillAmount = 0f;
+    }
+    public void UpdateProgressBar()
+    {
+        float fillAmount = (float.Parse(currentActivityPoints.ToString()) / float.Parse(chest.activityPointsToGet.ToString()));
+        progressBar.fillAmount = fillAmount;
     }
 }
