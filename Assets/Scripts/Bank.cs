@@ -17,8 +17,9 @@ public class Bank : MonoBehaviour
         }
     }
 
-    [SerializeField] private TMP_Text moneyAmount;
     [HideInInspector] public TMP_Text moneyToGainFromPurchase;
+    [SerializeField] private TMP_Text moneyAmount;
+    
     private string moneyAmountString;
     private string moneyToGainString;
     private int moneyToGainInt;

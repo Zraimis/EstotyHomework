@@ -1,10 +1,9 @@
-using TMPro;
 using UnityEngine;
 
 public class SpawnStore : MonoBehaviour
 {
     [SerializeField] private StoreItem spawnObject;
-    [SerializeReference] private ShopConfig[] shopConfigContainer;
+    [SerializeField] private ShopConfig[] shopConfigContainer;
     public void Start()
     {
         for (int i = 0; i <= shopConfigContainer.Length-1; i++)
@@ -15,8 +14,7 @@ public class SpawnStore : MonoBehaviour
             if (shopConfigContainer[i].FirstBuyAmount.ToString().Length == 3)
             {
                 storeItem.moneyToGainFromPurchase.fontSize = 50;
-            }
-            
+            }            
             storeItem.OldAmountText.text = (shopConfigContainer[i].DefaultBuyAmount).ToString();
             storeItem.BuyCost.text = $"{shopConfigContainer[i].BuyCost}$";
             storeItem.DiscountAmount.text = $"+{shopConfigContainer[i].Discount}%";

@@ -7,6 +7,7 @@ public class TimerReset : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private OnClickResetAll resetActivities;
     [SerializeField] private GameObject timer;
+
     private float startTime = 10f;
     private float timerTime;
     private float hours;
@@ -21,18 +22,15 @@ public class TimerReset : MonoBehaviour
         else 
         {
             timerTime = PlayerPrefs.GetFloat("timerTime"); 
-        }
-        
-
+        }      
     }
+
     void Update()
     {
         if (timerTime < 0f) 
-        {
-            
+        {          
             resetActivities.SetFree();
             timer.SetActive(false);
-            
         }
         else
         {

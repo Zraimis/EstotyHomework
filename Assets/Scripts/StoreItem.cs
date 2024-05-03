@@ -10,6 +10,7 @@ public class StoreItem : MonoBehaviour
     [SerializeField] private GameObject oldAmount;
     [SerializeField] private GameObject oldAmountPanel;
     [SerializeField] public TMP_Text OldAmountText;
+
     public TMP_Text BuyCost;
     public TMP_Text DiscountAmount;
     public Image MoneyIcon;
@@ -28,12 +29,9 @@ public class StoreItem : MonoBehaviour
         {
             moneyToGainFromPurchase.fontSize = 50;
             moneyToGainObject.transform.localPosition = new Vector3(20f, 7f, 0f);
-        }
-        
-
+        }       
         moneyToGainFromPurchase.text = OldAmountText.text;
         Destroy(oldAmount);
-        Destroy(discountBanner);
-        
+        Destroy(discountBanner);        
     }
 }

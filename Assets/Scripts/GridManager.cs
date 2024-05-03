@@ -1,24 +1,20 @@
-
 using System.Collections.Generic;
-using UnityEngine;
 
 public class GridManager 
 {
-    private List<Card> _cards = new List<Card>();
-    private List<Slot> _slots = new List<Slot>();
+    public static GridManager Instance { get; private set; }
     public GridManager()
     {
         Awake();
     }
-    public static GridManager Instance { get; private set; }
 
+    private List<Card> _cards = new List<Card>();
+    private List<Slot> _slots = new List<Slot>();
     private void Awake()
-    {
-        
-
+    {       
         if (Instance != null && Instance != this)
         {
-            //Destroy(this);
+            return;
         }
         else
         {

@@ -1,8 +1,7 @@
 using UnityEngine;
 
 public class NotEnoughMoney : MonoBehaviour 
-{
-    [SerializeField] private GameObject popUp;
+{  
     public static NotEnoughMoney Instance { get; private set; }
 
     private void Awake()
@@ -16,6 +15,8 @@ public class NotEnoughMoney : MonoBehaviour
             Instance = this;
         }
     }
+    [SerializeField] private GameObject popUp;
+
     public void PopUpPopUp()
     {
         popUp.SetActive(true);
@@ -25,5 +26,4 @@ public class NotEnoughMoney : MonoBehaviour
     {
         popUp.SetActive(false);
     }
-
 }

@@ -6,14 +6,12 @@ using UnityEngine.UI;
 
 public class SpawnCards : MonoBehaviour
 {
-    [SerializeField] private Image progressBar;
     [SerializeField] private Card spawnCard;
     [SerializeField] private ButtonSpawn buttonSpawn;
-    [SerializeField] private TMP_Text activityPoointsPanelText;
     [SerializeField] private GameObject chestClickArea;
     [SerializeField] private Image chestImage;
     [SerializeField] private Bank bank;
-    [SerializeReference] private CardConfig[] cardConfigContainer;
+    [SerializeField] private CardConfig[] cardConfigContainer;
 
     private int amountOfCardsOnScene;
     private int randomNumber;
@@ -45,8 +43,6 @@ public class SpawnCards : MonoBehaviour
             randomCard = cardConfigContainer[randomNumber];
             Card card = Instantiate(spawnCard);
             card.transform.SetParent(transform.GetChild(currentSlot), false);
-            card.progressBar = progressBar;
-            card.activityPointsPanelText = activityPoointsPanelText;
            
             card.logo.sprite = randomCard.logoSprite;
             card.activityPoints = randomCard.activityPoints;
@@ -56,7 +52,6 @@ public class SpawnCards : MonoBehaviour
             card.isClaimable = randomCard.isClaimable;
             card.id = currentSlot;
             
-
             GridManager.Instance.GetCards(card);
             
             if(usedNumbers.Count >= 3)
@@ -67,6 +62,7 @@ public class SpawnCards : MonoBehaviour
         amountOfCardsOnScene += amountOfCardsToSpawn+1;
         amountOfCardsToSpawn = 3 - amountOfCardsOnScene;       
     }
+
     public void ResetCards()
     {
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Respawn");
