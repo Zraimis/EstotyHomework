@@ -24,36 +24,41 @@ public class Bank : MonoBehaviour
     private string moneyToGainString;
     private int moneyToGainInt;
     private int moneyAmountInt;
-    private void Update()
+    private string moneyIconString;
+    private void Start()
     {
-        moneyAmount.text = PlayerPrefs.GetString("moneyAmount");
+        moneyIconString = "<sprite=\"items\" index=12>";
+        moneyAmountString = PlayerPrefs.GetString("moneyAmount");  
+        moneyAmount.text = $"{moneyAmountString}{moneyIconString}";
     }
 
     public void GainMoney()
     {
-        moneyAmountString = moneyAmount.text;
         moneyToGainString = moneyToGainFromPurchase.text;
         moneyToGainInt = int.Parse(moneyAmountString);
         moneyAmountInt = int.Parse(moneyToGainString);
 
-        moneyAmount.text = (moneyAmountInt + moneyToGainInt).ToString();
-        PlayerPrefs.SetString("moneyAmount", moneyAmount.text);
+        moneyAmount.text = $"{moneyAmountInt + moneyToGainInt}{moneyIconString}";
+        moneyAmountString = (moneyAmountInt + moneyToGainInt).ToString();
+        PlayerPrefs.SetString("moneyAmount", moneyAmountString);
     }
 
     public void AddMoneyFromChest(int random)
     {
-        moneyAmountInt = int.Parse(moneyAmount.text);
-        moneyAmount.text = (moneyAmountInt + random).ToString();
-        PlayerPrefs.SetString("moneyAmount", moneyAmount.text);
+        moneyAmountInt = int.Parse(moneyAmountString);
+        moneyAmount.text = $"{moneyAmountInt + random}{moneyIconString}";
+        moneyAmountString = (moneyAmountInt + random).ToString();
+        PlayerPrefs.SetString("moneyAmount", moneyAmountString);
     }
 
     public bool RemoveMoney(int amount)
     {
-        moneyAmountInt = int.Parse(moneyAmount.text);
+        moneyAmountInt = int.Parse(moneyAmountString);
         if(amount <= moneyAmountInt) 
         {
-            moneyAmount.text = (moneyAmountInt - amount).ToString();
-            PlayerPrefs.SetString("moneyAmount", moneyAmount.text);
+            moneyAmount.text = $"{moneyAmountInt - amount}{moneyIconString}";
+            moneyAmountString = (moneyAmountInt - amount).ToString();
+            PlayerPrefs.SetString("moneyAmount", moneyAmountString);
 
             return true;
         }
