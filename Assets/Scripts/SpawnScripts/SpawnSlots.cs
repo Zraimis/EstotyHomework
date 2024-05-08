@@ -1,12 +1,10 @@
 using UnityEngine;
 
-
 public class ButtonSpawn  : MonoBehaviour
 {
-    [SerializeField]
-    Slot spawnObject;
+    [SerializeField] Slot spawnObject;
     private int slotCount;
-    void Awake()
+    void Start()
     {      
         slotCount = 2;
         for (int i = 0 ; i <= slotCount; i++) 
@@ -16,9 +14,5 @@ public class ButtonSpawn  : MonoBehaviour
             slot.id = i;
             GridManager.Instance.GetSlots(slot);
         }       
-    }
-    public int GetSlotCount()
-    {
-        return slotCount;
     }
 }

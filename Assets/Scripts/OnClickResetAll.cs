@@ -12,22 +12,20 @@ public class OnClickResetAll : MonoBehaviour
 
     private int costAmountInt;
     private bool isFree = true;
-    public void Update()
+    public void Awake()
     {
-        if (isFree) 
-        { 
-            costAmount.text = "Free";
-            costAmount.transform.localPosition = new Vector3(-40f, 10f, 0f);
-            backGround.color = new Color(0.05f,0.7f,0.35f);
-            moneyIcon.SetActive(false);
+        if(PlayerPrefs.GetInt("freeOrBuyable") == 0)
+        {
+            SetFree();
         }
         else
         {
-            moneyIcon.SetActive(true);
-            costAmount.text = "10";
-            costAmount.transform.localPosition = new Vector3(35f, 10f, 0f);
-            backGround.color = Color.yellow;
+            SetFalse();
         }
+    }
+    public void Update()
+    {
+        SetFreeOrBuyable();
     }
 
     public bool IsFree()
@@ -38,6 +36,10 @@ public class OnClickResetAll : MonoBehaviour
     public void SetFree() 
     {
         isFree = true; 
+    }
+    public void SetFalse()
+    {
+        isFree = false;
     }
 
     public void OnClickReset()
@@ -55,7 +57,26 @@ public class OnClickResetAll : MonoBehaviour
         }
         else
         {
-            NotEnoughMoney.Instance.PopUpPopUp();
+            SpawnNotEnoughMoneyPopUp.Instance.SpawnPopUp();
         }       
+    }
+    public void SetFreeOrBuyable()
+    {
+        if (isFree)
+        {
+            costAmount.text = "Free";
+            costAmount.transform.localPosition = new Vector3(-40f, 10f, 0f);
+            backGround.color = new Color(0.05f, 0.7f, 0.35f);
+            moneyIcon.SetActive(false);
+            PlayerPrefs.SetInt("freeOrBuyable", 0);
+        }
+        else
+        {
+            moneyIcon.SetActive(true);
+            costAmount.text = "10";
+            costAmount.transform.localPosition = new Vector3(35f, 10f, 0f);
+            backGround.color = Color.yellow;
+            PlayerPrefs.SetInt("freeOrBuyable", 1);
+        }
     }
 }

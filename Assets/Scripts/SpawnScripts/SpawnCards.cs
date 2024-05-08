@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Pool;
 using UnityEngine.UI;
 
 public class SpawnCards : MonoBehaviour
 {
     [SerializeField] private Card spawnCard;
-    [SerializeField] private ButtonSpawn buttonSpawn;
-    [SerializeField] private GameObject chestClickArea;
-    [SerializeField] private Image chestImage;
-    [SerializeField] private Bank bank;
     [SerializeField] private CardConfig[] cardConfigContainer;
 
     private int amountOfCardsOnScene;
@@ -20,9 +17,8 @@ public class SpawnCards : MonoBehaviour
     private CardConfig randomCard;
     
     public void Start()
-    {                
+    {     
         amountOfCardsToSpawn = 2;   
-        SpawnCardsOnSlots();
     }
 
     private void RandomNumber()
@@ -41,18 +37,19 @@ public class SpawnCards : MonoBehaviour
             usedNumbers.Add(randomNumber);
             
             randomCard = cardConfigContainer[randomNumber];
-            Card card = Instantiate(spawnCard);
-            card.transform.SetParent(transform.GetChild(currentSlot), false);
-           
+            Card card = ObjectPool.Instance.GetPooledObject();
+            if(card != null) 
+            { 
+            card.transform.SetParent(transform.GetChild(currentSlot), false);           
             card.logo.sprite = randomCard.logoSprite;
             card.activityPoints = randomCard.activityPoints;
             card.currentAmount = randomCard.currentAmount;
             card.maxAmount = randomCard.maxAmount;
             card.cardTitle.text = randomCard.cardTitle;
             card.isClaimable = randomCard.isClaimable;
-            card.id = currentSlot;
-            
-            GridManager.Instance.GetCards(card);
+            card.id = currentSlot;     
+            card.gameObject.SetActive(true);
+            }
             
             if(usedNumbers.Count >= 3)
             {
@@ -68,9 +65,10 @@ public class SpawnCards : MonoBehaviour
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Respawn");
         foreach (GameObject target in gameObjects)
         {
-            Destroy(target);          
+            target.SetActive(false); ;          
         }
         amountOfCardsToSpawn = 2;
+        GridManager.Instance.ResetGridManager();
         SpawnCardsOnSlots();
     }
 }

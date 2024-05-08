@@ -6,7 +6,8 @@ using DG.Tweening;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public void LoadScene(string sceneName)
+    [SerializeField] private string sceneName; 
+    public void LoadScene()
     {
         SceneManager.LoadScene(sceneName);
     }

@@ -1,6 +1,4 @@
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "New card",menuName ="Card")]
 public class CardConfig : ScriptableObject
@@ -12,5 +10,4 @@ public class CardConfig : ScriptableObject
     public int maxAmount;
     public string cardTitle;
     public bool isClaimable;
-
 }

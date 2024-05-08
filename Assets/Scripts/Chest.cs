@@ -11,6 +11,7 @@ public class Chest : MonoBehaviour
     public int maxMoney;
     public int activityPointsToGet;   
     private int random;
+    public int id;
     public void Start()
     {
         random = Random.Range(minMoney, maxMoney);
@@ -28,6 +29,6 @@ public class Chest : MonoBehaviour
     public void ChestUnlock()
     {
         chestClickArea.SetActive(true);
-        chestImage.color = new Color(chestImage.color.r, chestImage.color.g, chestImage.color.b, 1f);      
+        chestImage.color = new Color(chestImage.color.r, chestImage.color.g, chestImage.color.b, 1f);
     }
 }

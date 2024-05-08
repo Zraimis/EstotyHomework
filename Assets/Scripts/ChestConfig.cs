@@ -7,4 +7,5 @@ public class ChestConfig : ScriptableObject
     public int maxMoney;
     public int activityPointsToGet;
     public Color color;
+    public int id;
 }

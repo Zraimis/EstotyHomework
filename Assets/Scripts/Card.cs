@@ -6,11 +6,11 @@ public class Card : MonoBehaviour
 {
     [HideInInspector] public Chest chest;
     [HideInInspector] public Image progressBar;
-    [SerializeField] private TMP_Text progressText;
-    [SerializeField] private GameObject glowBorder;
+    [SerializeField] public TMP_Text progressText;
+    [SerializeField] public GameObject glowBorder;
     [SerializeField] private Sprite newBackgroundSprite;
-    [SerializeField] private Image background;
-    [SerializeField] private Image amountPanel;
+    [SerializeField] public Image background;
+    [SerializeField] public Image amountPanel;
     [SerializeField] private Sprite newAmountPanelSprite;
     [SerializeField] public Image logo;
     [SerializeField] public TMP_Text cardTitle;
@@ -52,7 +52,9 @@ public class Card : MonoBehaviour
             ProgressBar.Instance.changeTextOnClick(activityPoints);
             ProgressBar.Instance.UpdateProgressBar(chest);                     
             GridManager.Instance.UpdateGrid(id);
-            Destroy(gameObject);
+            ObjectPool.Instance.ResetPoolingCard();
+            gameObject.SetActive(false);
+            
         }          
     }
 }

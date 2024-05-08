@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class GridManager 
 {
@@ -8,10 +9,11 @@ public class GridManager
         Awake();
     }
 
-    private List<Card> _cards = new List<Card>();
+    private List<Card> _cards = new List<Card>(); 
+    private List<Card> _cardBank = new List<Card>();
     private List<Slot> _slots = new List<Slot>();
     private void Awake()
-    {       
+    {
         if (Instance != null && Instance != this)
         {
             return;
@@ -25,6 +27,12 @@ public class GridManager
     public void GetCards(Card card)
     {
         _cards.Add(card);
+        _cardBank.Add(card);
+    }
+
+    public void ResetGridManager()
+    {
+        _cards = _cardBank;
     }
 
     public void GetSlots(Slot slot) 
@@ -32,13 +40,14 @@ public class GridManager
         _slots.Add(slot);
     }
     public void UpdateGrid(int id)
-    {
+    { 
+        _slots.RemoveAll(s => s == null);
         foreach (Card card in _cards)
         {
             if(card != null) 
             { 
             if (card.id > id)
-            {
+            {                  
                 card.transform.SetParent(_slots[card.id-1].transform,false);
                 card.id -= 1;
             }

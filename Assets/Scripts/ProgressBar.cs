@@ -20,7 +20,8 @@ public class ProgressBar : MonoBehaviour
     public void Start()
     {
         currentSize = PlayerPrefs.GetFloat("currentSize");
-        currentActivityPointsText.text = PlayerPrefs.GetString("currentActivityPoints");
+        currentActivityPointsText.text = PlayerPrefs.GetInt("currentActivityPoints").ToString();
+        currentActivityPoints = PlayerPrefs.GetInt("currentActivityPoints");
         progressBar.rectTransform.offsetMax = new Vector2(currentSize, -5);
     }
     public void ResetProgessBar()
@@ -30,6 +31,7 @@ public class ProgressBar : MonoBehaviour
         currentSize = -450;       
         progressBar.rectTransform.offsetMax = new Vector2(currentSize, -5);
         PlayerPrefs.SetFloat("currentSize",currentSize);
+        PlayerPrefs.SetInt("currentActivityPoints",currentActivityPoints);
     }
 
     public void UpdateProgressBar(Chest chest)
@@ -52,7 +54,7 @@ public class ProgressBar : MonoBehaviour
         ap = activityPoints;
         currentActivityPointsText.text = (currentActivityPoints + activityPoints).ToString();
         currentActivityPoints += activityPoints;
-        PlayerPrefs.SetString("currentActivityPoints",currentActivityPoints.ToString());       
+        PlayerPrefs.SetInt("currentActivityPoints",currentActivityPoints);       
         if (currentSize >= 0)
         {
             ResetProgessBar();

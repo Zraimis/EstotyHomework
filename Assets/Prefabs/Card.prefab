@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Place Holder
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 55292a84e68c377478e23bed1d77fa3a, type: 2}
-  m_sharedMaterial: {fileID: 3758990292924086250, guid: 55292a84e68c377478e23bed1d77fa3a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0249d89412f79824ebf4983e242426d0, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 77de4fc8c6c1c4e469e80de03df34416, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -145,8 +145,8 @@ GameObject:
   - component: {fileID: 1025421526746015285}
   - component: {fileID: 5209457326030354785}
   - component: {fileID: 1751591667807614949}
-  - component: {fileID: 684123929305181771}
   - component: {fileID: -2794849748866416316}
+  - component: {fileID: 320668878274588982}
   m_Layer: 0
   m_Name: Card
   m_TagString: Respawn
@@ -238,19 +238,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &684123929305181771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1470803564121055406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78e5efea6129ae149ab327054313ceba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeTime: 0.75
 --- !u!114 &-2794849748866416316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f45d11a131a1a834091bc3f817790f5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chest: {fileID: 0}
   progressBar: {fileID: 0}
   progressText: {fileID: 1773204816111087265}
   glowBorder: {fileID: 4361905965447149576}
@@ -272,12 +260,24 @@ MonoBehaviour:
   newAmountPanelSprite: {fileID: 21300000, guid: f3ad9f56ab9f8af4494fc530eaf1a957, type: 3}
   logo: {fileID: 1979631116076813205}
   cardTitle: {fileID: 8985123126156108638}
-  chest: {fileID: 8062738621183533343, guid: f8a5886035c2b3a4b9997d0ee5c1207f, type: 3}
   activityPoints: 0
   isClaimable: 0
   currentAmount: 0
   maxAmount: 0
   id: 0
+--- !u!114 &320668878274588982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470803564121055406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e5efea6129ae149ab327054313ceba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 0.8
 --- !u!1 &1512458633333809666
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,8 +462,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 25
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 55292a84e68c377478e23bed1d77fa3a, type: 2}
-  m_sharedMaterial: {fileID: 3758990292924086250, guid: 55292a84e68c377478e23bed1d77fa3a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0249d89412f79824ebf4983e242426d0, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 77de4fc8c6c1c4e469e80de03df34416, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -897,8 +897,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: OPEN TILES
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 55292a84e68c377478e23bed1d77fa3a, type: 2}
-  m_sharedMaterial: {fileID: 3758990292924086250, guid: 55292a84e68c377478e23bed1d77fa3a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0249d89412f79824ebf4983e242426d0, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 77de4fc8c6c1c4e469e80de03df34416, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
