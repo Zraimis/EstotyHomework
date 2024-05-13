@@ -2,54 +2,57 @@ using UnityEngine;
 
 public class ChestSpawner : MonoBehaviour
 {
-    [SerializeField] private Chest spawnObject;
-    [SerializeField] private ChestConfig[] chestConfigContainer;
-    [SerializeField] private WatchAdForChest adForChest;
-    [SerializeField] private Card card;
-    private Chest chest;
-
-    private int randomNumber;
-    private ChestConfig randomChest;
+    [SerializeField] 
+    private Chest spawnObject;
+    [SerializeField] 
+    private ChestConfig[] chestConfigContainer;
+    [SerializeField] 
+    private WatchAdForChest adForChest;
+    [SerializeField] 
+    private Card card;
+    private Chest _chest;
+    private int _randomNumber;
+    private ChestConfig _randomChest;
     private void Start()
     {
         SpawnChest(PlayerPrefs.GetInt("chestId"));
     }
     private void RandomNumber()
     {
-        randomNumber = Random.Range(0, chestConfigContainer.Length);
+        _randomNumber = Random.Range(0, chestConfigContainer.Length);
     }
     public void SpawnChest()
     {
         RandomNumber();
 
-        randomChest = chestConfigContainer[randomNumber];
-        chest = Instantiate(spawnObject);
-        chest.id = randomChest.id;
-        chest.transform.SetParent(transform, false);
-        chest.minMoney = randomChest.minMoney;
-        chest.maxMoney = randomChest.maxMoney;
-        chest.chestImage.color = new Color(randomChest.color.r, randomChest.color.g, randomChest.color.b, 0.65f);
-        chest.activityPointsToGet = randomChest.activityPointsToGet;
-        chest.chestSpawner = this;
-        chest.chestClickArea.SetActive(false);
-        adForChest.chest = chest;
-        card.chest = chest;
+        _randomChest = chestConfigContainer[_randomNumber];
+        _chest = Instantiate(spawnObject);
+        _chest.id = _randomChest.id;
+        _chest.transform.SetParent(transform, false);
+        _chest.minMoney = _randomChest.minMoney;
+        _chest.maxMoney = _randomChest.maxMoney;
+        _chest.chestImage.color = new Color(_randomChest.color.r, _randomChest.color.g, _randomChest.color.b, 0.65f);
+        _chest.activityPointsToGet = _randomChest.activityPointsToGet;
+        _chest.chestSpawner = this;
+        _chest.chestClickArea.SetActive(false);
+        adForChest.chest = _chest;
+        card.chest = _chest;
 
-        PlayerPrefs.SetInt("chestId", chest.id);
+        PlayerPrefs.SetInt("chestId", _chest.id);
 
     }
-    public void SpawnChest(int id)
+    private void SpawnChest(int id)
     {
-        randomChest = chestConfigContainer[id];
-        chest = Instantiate(spawnObject);
-        chest.transform.SetParent(transform, false);
-        chest.minMoney = randomChest.minMoney;
-        chest.maxMoney = randomChest.maxMoney;
-        chest.chestImage.color = new Color(randomChest.color.r, randomChest.color.g, randomChest.color.b, 0.65f);
-        chest.activityPointsToGet = randomChest.activityPointsToGet;
-        chest.chestSpawner = this;
-        chest.chestClickArea.SetActive(false);
-        adForChest.chest = chest;
-        card.chest = chest;
+        _randomChest = chestConfigContainer[id];
+        _chest = Instantiate(spawnObject);
+        _chest.transform.SetParent(transform, false);
+        _chest.minMoney = _randomChest.minMoney;
+        _chest.maxMoney = _randomChest.maxMoney;
+        _chest.chestImage.color = new Color(_randomChest.color.r, _randomChest.color.g, _randomChest.color.b, 0.65f);
+        _chest.activityPointsToGet = _randomChest.activityPointsToGet;
+        _chest.chestSpawner = this;
+        _chest.chestClickArea.SetActive(false);
+        adForChest.chest = _chest;
+        card.chest = _chest;
     }
 }

@@ -3,10 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class GameInitializer : MonoBehaviour
 {
-    [SerializeField] private GameObject canvas;
-    [SerializeField] private Bank bankObj;
-
-
+    [SerializeField] 
+    private GameObject canvas;
+    [SerializeField] 
+    private Bank bankObj;
+    [SerializeField] 
+    private GameObject eventSystem;
+    [SerializeField] 
+    private Camera cameraUI;
     private Bank bank;
     public void Awake()
     {
@@ -14,10 +18,15 @@ public class GameInitializer : MonoBehaviour
         InstantiateBank();
         DontDestroyOnLoad(canvas);
         DontDestroyOnLoad(gameObject);
-        DontDestroyOnLoad(bank);
+        DontDestroyOnLoad(eventSystem);
+        DontDestroyOnLoad(cameraUI);
         SceneManager.LoadScene("GameplayScene");
     }
-    public void InstantiateBank()
+    private void Update()
+    {
+        StorePopup.Instance.spawnLocation = canvas;
+    }
+    private void InstantiateBank()
     {
         bank = Instantiate(bankObj);
         bank.transform.SetParent(canvas.transform, false);

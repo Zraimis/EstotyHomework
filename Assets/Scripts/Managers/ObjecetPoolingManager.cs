@@ -1,27 +1,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPool : MonoBehaviour
-{ 
-    [HideInInspector]public List<Card> _pooledObjects;
-    [SerializeField] private Sprite oldBackgroundSprite;
-    [SerializeField] private Sprite oldAmountPanelSprite;
+public class ObjectPoolingManager : MonoBehaviour
+{
+    public static ObjectPoolingManager Instance { get; private set; }
     public Card objectToPool;
     public int amountToPool;
-    public static ObjectPool Instance;
+    [HideInInspector] 
+    public List<Card> _pooledObjects;
+    [SerializeField] 
+    private Sprite oldBackgroundSprite;
+    [SerializeField] 
+    private Sprite oldAmountPanelSprite;
+    
 
     void Awake()
     {
+        GridManager.Instance.ClearGridCards();
         Instance = this;  
     }
-    private void Start()
-    {
+    public void Start()
+    {    
         _pooledObjects = new List<Card>();
         Card tmp;
         for (int i = 0; i <= amountToPool; i++)
         {
             tmp = Instantiate(objectToPool);
             tmp.gameObject.SetActive(false);
+            tmp.transform.SetParent(gameObject.transform, false);
             _pooledObjects.Add(tmp);
             GridManager.Instance.GetCards(tmp);
         }

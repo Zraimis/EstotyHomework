@@ -16,3 +16,4 @@ MonoBehaviour:
   maxMoney: 500
   activityPointsToGet: 250
   color: {r: 0.6886792, g: 0.3216002, b: 0.3216002, a: 1}
+  id: 1

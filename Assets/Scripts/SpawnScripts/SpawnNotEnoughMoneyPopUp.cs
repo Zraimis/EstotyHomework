@@ -15,7 +15,9 @@ public class SpawnNotEnoughMoneyPopUp : MonoBehaviour
             Instance = this;
         }
     }
-    [SerializeField] private NotEnoughMoney popUp;
+
+    [SerializeField] 
+    private NotEnoughMoney popUp;
     public void SpawnPopUp()
     {
         NotEnoughMoney s = Instantiate(popUp);

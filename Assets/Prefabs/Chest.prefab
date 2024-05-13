@@ -115,7 +115,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8062738621183533343}
-        m_TargetAssemblyTypeName: ChestOnClick, Assembly-CSharp
+        m_TargetAssemblyTypeName: Chest, Assembly-CSharp
         m_MethodName: ChestClick
         m_Mode: 1
         m_Arguments:
@@ -138,12 +138,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96f5f6600b976464e9c5e7ccce4e7e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chestSpawner: {fileID: 0}
   chestImage: {fileID: 2763346508510259163}
   chestClickArea: {fileID: 2125208741324617628}
-  chestSpawner: {fileID: 0}
   minMoney: 0
   maxMoney: 0
   activityPointsToGet: 0
+  id: 0
 --- !u!1 &2125208741324617628
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,7 +155,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5298858148912585404}
   - component: {fileID: 2170665143709064634}
-  - component: {fileID: 1335536004580292028}
   - component: {fileID: 8159655723867249718}
   m_Layer: 0
   m_Name: ClickArea
@@ -190,24 +190,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125208741324617628}
   m_CullTransparentMesh: 1
---- !u!114 &1335536004580292028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2125208741324617628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96f5f6600b976464e9c5e7ccce4e7e4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chestImage: {fileID: 0}
-  chestClickArea: {fileID: 0}
-  chestSpawner: {fileID: 0}
-  minMoney: 0
-  maxMoney: 0
-  activityPointsToGet: 0
 --- !u!114 &8159655723867249718
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,22 +4,32 @@ using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
-    [HideInInspector] public Chest chest;
-    [HideInInspector] public Image progressBar;
-    [SerializeField] public TMP_Text progressText;
-    [SerializeField] public GameObject glowBorder;
-    [SerializeField] private Sprite newBackgroundSprite;
-    [SerializeField] public Image background;
-    [SerializeField] public Image amountPanel;
-    [SerializeField] private Sprite newAmountPanelSprite;
-    [SerializeField] public Image logo;
-    [SerializeField] public TMP_Text cardTitle;
-    
     public int activityPoints;
     public bool isClaimable;
     public int currentAmount;
     public int maxAmount;
     public int id;
+    [HideInInspector] 
+    public Chest chest;
+    [HideInInspector] 
+    public Image progressBar;
+    [SerializeField]
+    public Image background;
+    [SerializeField]
+    public Image amountPanel;
+    [SerializeField] 
+    public TMP_Text progressText;
+    [SerializeField] 
+    public GameObject glowBorder;
+    [SerializeField]
+    public Image logo;
+    [SerializeField]
+    public TMP_Text cardTitle;  
+    [SerializeField] 
+    private Sprite newBackgroundSprite;   
+    [SerializeField] 
+    private Sprite newAmountPanelSprite;
+    
     private void Update()
     {
         if (!isClaimable)
@@ -41,7 +51,7 @@ public class Card : MonoBehaviour
         }
     }
 
-    public void OnClaimClick()
+    public void OnCardClick()
     {
         if (!isClaimable) 
         {
@@ -49,10 +59,10 @@ public class Card : MonoBehaviour
         }
         else
         {                       
-            ProgressBar.Instance.changeTextOnClick(activityPoints);
+            ProgressBar.Instance.ChangeTextOnClick(activityPoints);
             ProgressBar.Instance.UpdateProgressBar(chest);                     
             GridManager.Instance.UpdateGrid(id);
-            ObjectPool.Instance.ResetPoolingCard();
+            ObjectPoolingManager.Instance.ResetPoolingCard();
             gameObject.SetActive(false);
             
         }          

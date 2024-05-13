@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class NotEnoughMoney : MonoBehaviour 
+public class NotEnoughMoney : MonoBehaviour
 {
-    public void OnClickDisablePopUp()
+    public void OnClickDestroyPopUp()
     {
         Destroy(gameObject);
     }

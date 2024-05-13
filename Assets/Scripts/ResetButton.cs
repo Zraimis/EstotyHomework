@@ -4,14 +4,19 @@ using UnityEngine.UI;
 
 public class OnClickResetAll : MonoBehaviour
 {
-    [SerializeField] private SpawnCards spawnCards;
-    [SerializeField] private TMP_Text costAmount;
-    [SerializeField] private Image backGround;
-    [SerializeField] private GameObject moneyIcon;
-    [SerializeField] private TimerReset timer;
+    [SerializeField] 
+    private SpawnCards spawnCards;
+    [SerializeField] 
+    private TMP_Text costAmount;
+    [SerializeField] 
+    private Image backGround;
+    [SerializeField] 
+    private GameObject moneyIcon;
+    [SerializeField] 
+    private TimerReset timer;
+    private int _costAmountInt;
+    private bool _isFree = true;
 
-    private int costAmountInt;
-    private bool isFree = true;
     public void Awake()
     {
         if(PlayerPrefs.GetInt("freeOrBuyable") == 0)
@@ -30,28 +35,28 @@ public class OnClickResetAll : MonoBehaviour
 
     public bool IsFree()
     {
-        return isFree ? true : false;
+        return _isFree ? true : false;
     }
 
     public void SetFree() 
     {
-        isFree = true; 
+        _isFree = true; 
     }
     public void SetFalse()
     {
-        isFree = false;
+        _isFree = false;
     }
 
     public void OnClickReset()
     {
-        costAmountInt = 10;
-        if (isFree)
+        _costAmountInt = 10;
+        if (_isFree)
         {
-            isFree = false;
+            _isFree = false;
             timer.ResetTimer();
             spawnCards.ResetCards();
         }
-        else if (Bank.Instance.RemoveMoney(costAmountInt))
+        else if (Bank.Instance.RemoveMoney(_costAmountInt))
         {
             spawnCards.ResetCards();
         }
@@ -62,7 +67,7 @@ public class OnClickResetAll : MonoBehaviour
     }
     public void SetFreeOrBuyable()
     {
-        if (isFree)
+        if (_isFree)
         {
             costAmount.text = "Free";
             costAmount.transform.localPosition = new Vector3(-40f, 10f, 0f);

@@ -4,21 +4,27 @@ using UnityEngine.UI;
 
 public class StoreItem : MonoBehaviour
 {
-    [SerializeField] public TMP_Text moneyToGainFromPurchase;
-    [SerializeField] private GameObject moneyToGainObject;
-    [SerializeField] private GameObject discountBanner;
-    [SerializeField] private GameObject oldAmount;
-    [SerializeField] private GameObject oldAmountPanel;
-    [SerializeField] public TMP_Text OldAmountText;
-
+    [SerializeField] 
+    public TMP_Text moneyToGainFromPurchase;
+    [SerializeField]
+    public TMP_Text OldAmountText;
     public TMP_Text BuyCost;
     public TMP_Text DiscountAmount;
     public Image MoneyIcon;
+    [SerializeField] 
+    private GameObject moneyToGainObject;
+    [SerializeField] 
+    private GameObject discountBanner;
+    [SerializeField] 
+    private GameObject oldAmount;
+    [SerializeField] 
+    private GameObject oldAmountPanel;
+    
 
     public void OnClickBuy()
     {
         Bank.Instance.moneyToGainFromPurchase = moneyToGainFromPurchase;
-        Bank.Instance.GainMoney();
+        Bank.Instance.AddMoney();
         moneyToGainObject.transform.SetParent(oldAmountPanel.transform);
         if (moneyToGainFromPurchase.text.Length >= 4)
         {

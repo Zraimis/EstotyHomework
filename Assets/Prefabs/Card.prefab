@@ -227,8 +227,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: -2794849748866416316}
-        m_TargetAssemblyTypeName: TaskAmount, Assembly-CSharp
-        m_MethodName: OnClaimClick
+        m_TargetAssemblyTypeName: Card, Assembly-CSharp
+        m_MethodName: OnCardClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e5efea6129ae149ab327054313ceba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTime: 0.8
+  _fadeTime: 0
 --- !u!1 &1512458633333809666
 GameObject:
   m_ObjectHideFlags: 0

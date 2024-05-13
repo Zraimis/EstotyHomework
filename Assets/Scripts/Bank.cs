@@ -17,48 +17,50 @@ public class Bank : MonoBehaviour
         }
     }
 
-    [HideInInspector] public TMP_Text moneyToGainFromPurchase;
-    [SerializeField] private TMP_Text moneyAmount;
+    [HideInInspector] 
+    public TMP_Text moneyToGainFromPurchase;
+    [SerializeField] 
+    private TMP_Text moneyAmount;
 
-    private string moneyAmountString;
-    private string moneyToGainString;
-    private int moneyToGainInt;
-    private int moneyAmountInt;
-    private string moneyIconString;
+    private string _moneyAmountString;
+    private string _moneyToGainString;
+    private int _moneyToGainInt;
+    private int _moneyAmountInt;
+    private string _moneyIconString;
     private void Start()
     {
-        moneyIconString = "<sprite=\"items\" index=12>";
-        moneyAmountString = PlayerPrefs.GetString("moneyAmount");  
-        moneyAmount.text = $"{moneyAmountString}{moneyIconString}";
+        _moneyIconString = "<sprite=\"items\" index=12>";
+        _moneyAmountString = PlayerPrefs.GetString("moneyAmount");  
+        moneyAmount.text = $"{_moneyAmountString}{_moneyIconString}";
     }
 
-    public void GainMoney()
+    public void AddMoney()
     {
-        moneyToGainString = moneyToGainFromPurchase.text;
-        moneyToGainInt = int.Parse(moneyAmountString);
-        moneyAmountInt = int.Parse(moneyToGainString);
+        _moneyToGainString = moneyToGainFromPurchase.text;
+        _moneyToGainInt = int.Parse(_moneyAmountString);
+        _moneyAmountInt = int.Parse(_moneyToGainString);
 
-        moneyAmount.text = $"{moneyAmountInt + moneyToGainInt}{moneyIconString}";
-        moneyAmountString = (moneyAmountInt + moneyToGainInt).ToString();
-        PlayerPrefs.SetString("moneyAmount", moneyAmountString);
+        moneyAmount.text = $"{_moneyAmountInt + _moneyToGainInt}{_moneyIconString}";
+        _moneyAmountString = (_moneyAmountInt + _moneyToGainInt).ToString();
+        PlayerPrefs.SetString("moneyAmount", _moneyAmountString);
     }
 
     public void AddMoneyFromChest(int random)
     {
-        moneyAmountInt = int.Parse(moneyAmountString);
-        moneyAmount.text = $"{moneyAmountInt + random}{moneyIconString}";
-        moneyAmountString = (moneyAmountInt + random).ToString();
-        PlayerPrefs.SetString("moneyAmount", moneyAmountString);
+        _moneyAmountInt = int.Parse(_moneyAmountString);
+        moneyAmount.text = $"{_moneyAmountInt + random}{_moneyIconString}";
+        _moneyAmountString = (_moneyAmountInt + random).ToString();
+        PlayerPrefs.SetString("moneyAmount", _moneyAmountString);
     }
 
     public bool RemoveMoney(int amount)
     {
-        moneyAmountInt = int.Parse(moneyAmountString);
-        if(amount <= moneyAmountInt) 
+        _moneyAmountInt = int.Parse(_moneyAmountString);
+        if(amount <= _moneyAmountInt) 
         {
-            moneyAmount.text = $"{moneyAmountInt - amount}{moneyIconString}";
-            moneyAmountString = (moneyAmountInt - amount).ToString();
-            PlayerPrefs.SetString("moneyAmount", moneyAmountString);
+            moneyAmount.text = $"{_moneyAmountInt - amount}{_moneyIconString}";
+            _moneyAmountString = (_moneyAmountInt - amount).ToString();
+            PlayerPrefs.SetString("moneyAmount", _moneyAmountString);
 
             return true;
         }

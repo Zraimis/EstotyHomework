@@ -4,7 +4,6 @@ using UnityEngine;
 public class CardConfig : ScriptableObject
 {
     public Sprite logoSprite;
-
     public int activityPoints;
     public int currentAmount; 
     public int maxAmount;

@@ -9,53 +9,55 @@ public class ProgressBar : MonoBehaviour
     {
         Instance = this;
     }
-    [HideInInspector] public int currentActivityPoints;
+
+    [HideInInspector] 
+    public int currentActivityPoints;
     public Image progressBar;
     public TMP_Text currentActivityPointsText;   
-    private float increaseProcent;
-    private float increase;
-    private float currentSize = -450;
-    private float ap;
+    private float _increaseProcent;
+    private float _increase;
+    private float _currentSize = -450;
+    private float _ap;
     
     public void Start()
     {
-        currentSize = PlayerPrefs.GetFloat("currentSize");
+        _currentSize = PlayerPrefs.GetFloat("currentSize");
         currentActivityPointsText.text = PlayerPrefs.GetInt("currentActivityPoints").ToString();
         currentActivityPoints = PlayerPrefs.GetInt("currentActivityPoints");
-        progressBar.rectTransform.offsetMax = new Vector2(currentSize, -5);
+        progressBar.rectTransform.offsetMax = new Vector2(_currentSize, -5);
     }
     public void ResetProgessBar()
     {      
         currentActivityPoints = 0;
         currentActivityPointsText.text = currentActivityPoints.ToString();
-        currentSize = -450;       
-        progressBar.rectTransform.offsetMax = new Vector2(currentSize, -5);
-        PlayerPrefs.SetFloat("currentSize",currentSize);
+        _currentSize = -450;       
+        progressBar.rectTransform.offsetMax = new Vector2(_currentSize, -5);
+        PlayerPrefs.SetFloat("currentSize",_currentSize);
         PlayerPrefs.SetInt("currentActivityPoints",currentActivityPoints);
     }
 
     public void UpdateProgressBar(Chest chest)
     {
-        increaseProcent =  ap / chest.activityPointsToGet;
-        increase = 450 * increaseProcent;       
-        progressBar.rectTransform.offsetMax = new Vector2(currentSize + increase, -5);
-        currentSize = currentSize + increase;
+        _increaseProcent =  _ap / chest.activityPointsToGet;
+        _increase = 450 * _increaseProcent;       
+        progressBar.rectTransform.offsetMax = new Vector2(_currentSize + _increase, -5);
+        _currentSize = _currentSize + _increase;
 
-        if (currentSize >= 0f)
+        if (_currentSize >= 0f)
         {
             ResetProgessBar();
             chest.ChestUnlock();
         }
-        PlayerPrefs.SetFloat("currentSize", currentSize);
+        PlayerPrefs.SetFloat("currentSize", _currentSize);
     }
 
-    public void changeTextOnClick(int activityPoints)
+    public void ChangeTextOnClick(int activityPoints)
     {
-        ap = activityPoints;
+        _ap = activityPoints;
         currentActivityPointsText.text = (currentActivityPoints + activityPoints).ToString();
         currentActivityPoints += activityPoints;
         PlayerPrefs.SetInt("currentActivityPoints",currentActivityPoints);       
-        if (currentSize >= 0)
+        if (_currentSize >= 0)
         {
             ResetProgessBar();
         }

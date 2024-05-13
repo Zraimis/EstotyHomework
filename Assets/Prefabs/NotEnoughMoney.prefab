@@ -159,7 +159,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7647975140145123194}
         m_TargetAssemblyTypeName: NotEnoughMoney, Assembly-CSharp
-        m_MethodName: OnClickDisablePopUp
+        m_MethodName: OnClickDestroyPopUp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
