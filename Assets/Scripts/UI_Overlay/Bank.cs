@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace EstotyHomework.UI_Overlay
 {
+    // TODO Can be made non MonoBehaviour
     public class Bank : MonoBehaviour
     {
         public static Bank Instance { get; private set; }

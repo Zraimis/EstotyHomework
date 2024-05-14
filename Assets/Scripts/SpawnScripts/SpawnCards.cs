@@ -20,7 +20,7 @@ namespace EstotyHomework.SpawnScripts
         private int _amountOfCardsToSpawn;
         private List<int> _usedNumbers = new List<int>();
         private CardConfig _randomCard;
-
+ // TODO same as chest spawner
         private void Awake()
         {
             if (Instance != null && Instance != this)

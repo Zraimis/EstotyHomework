@@ -6,6 +6,7 @@ namespace EstotyHomework.Managers
 {
     public class ObjectPoolingManager : MonoBehaviour
     {
+        // TODO Does these fields needs to be public?
         public static ObjectPoolingManager Instance { get; private set; }
         public Card objectToPool;
         public int amountToPool;
@@ -17,6 +18,7 @@ namespace EstotyHomework.Managers
         private Sprite oldAmountPanelSprite;
         private Card poolCard;
 
+        // TODO missing private modifier
         void Awake()
         {
             GridManager.Instance.ClearGridCards();
@@ -27,6 +29,7 @@ namespace EstotyHomework.Managers
             _pooledObjects = new List<Card>();
             for (int i = 0; i <= amountToPool; i++)
             {
+                // TODO SetParent can be combined with Instantiate
                 poolCard = Instantiate(objectToPool);
                 poolCard.gameObject.SetActive(false);
                 poolCard.transform.SetParent(gameObject.transform, false);

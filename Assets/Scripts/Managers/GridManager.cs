@@ -14,6 +14,7 @@ namespace EstotyHomework.Managers
             }
             else
             {
+            // TODO "else" is redundant here
                 Instance = this;
             }
         }
@@ -21,7 +22,7 @@ namespace EstotyHomework.Managers
         private List<Card> _cards = new List<Card>();
         private List<Card> _cardBank = new List<Card>();
         private List<Slot> _slots = new List<Slot>();
-
+	 // TODO AddCard would be better name
         public void GetCards(Card card)
         {
             _cards.Add(card);
@@ -39,7 +40,7 @@ namespace EstotyHomework.Managers
             _cardBank = new List<Card>();
             _slots = new List<Slot>();
         }
-
+		// TODO AddSlot would be better name
         public void GetSlots(Slot slot)
         {
             _slots.Add(slot);

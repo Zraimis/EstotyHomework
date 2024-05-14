@@ -1,7 +1,7 @@
 using EstotyHomework.Items;
 using EstotyHomework.Managers;
 using UnityEngine;
-
+// TODO Class name should be noun not verb
 namespace EstotyHomework.SpawnScripts
 {
     public class SpawnSlots : MonoBehaviour

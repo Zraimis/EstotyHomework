@@ -8,6 +8,7 @@ namespace EstotyHomework.UI_Overlay
         [SerializeField]
         private TMP_Text moneyAmountText;
         private int _moneyAmount;
+        // TODO Should be constant
         private string _moneyIconString = "<sprite=\"items\" index=12>";
 
         private void Update()

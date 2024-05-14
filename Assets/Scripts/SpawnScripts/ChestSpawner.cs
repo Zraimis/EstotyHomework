@@ -27,8 +27,11 @@ namespace EstotyHomework.SpawnScripts
         }
         private void RandomNumber()
         {
+        // TODO get rid of _randomNubmer field and use method to receive random number
             _randomNumber = Random.Range(0, chestConfigContainer.Length);
         }
+        // TODO Whats the difference between SpawnChest methods, consider better naming?
+    // TODO Get rid of duplicate code
         public void SpawnChest()
         {
             RandomNumber();

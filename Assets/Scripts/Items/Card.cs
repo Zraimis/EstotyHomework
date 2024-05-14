@@ -34,10 +34,12 @@ namespace EstotyHomework.Items
         [SerializeField]
         private Sprite newAmountPanelSprite;
 
+        // TODO Update should not be used, call this method only when card should be updated
         private void Update()
         {
             if (!isClaimable)
             {
+                // TODO invert if statement to reduce nesting, see "early return" pattern
                 if (currentAmount >= maxAmount)
                 {
                     ChangeCardToClaimableState();
@@ -64,6 +66,7 @@ namespace EstotyHomework.Items
         {
             if (!isClaimable)
             {
+                // TODO convert into compound assignment
                 currentAmount = currentAmount + 5;
             }
             else
