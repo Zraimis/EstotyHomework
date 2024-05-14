@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -16, y: -16}
+  m_SizeDelta: {x: -17, y: -17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3225080692753664454
 CanvasRenderer:
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1<sprite="items" index=12>
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0249d89412f79824ebf4983e242426d0, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 5aef3fdaa3dfe1e49a93753f3f90f210, type: 2}
@@ -286,8 +286,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55
-  m_fontSizeBase: 55
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -441,7 +441,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -100, y: 0}
-  m_SizeDelta: {x: 65, y: 65}
+  m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6067469374598047563
 MonoBehaviour:
@@ -511,8 +511,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 486a28c26b69c0a47880c0293e5fc456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storePref: {fileID: 3327470320480681355, guid: 68f08bf3e209da644831ed4900bad88b, type: 3}
   spawnLocation: {fileID: 0}
+  storePref: {fileID: 3327470320480681355, guid: 68f08bf3e209da644831ed4900bad88b, type: 3}
 --- !u!1 &6926069713710370106
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,7 +523,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7333683623291193490}
   - component: {fileID: 5723617127219789369}
-  - component: {fileID: 6412325502933518568}
+  - component: {fileID: -3268642085191151166}
+  - component: {fileID: 2873675307888359512}
   m_Layer: 5
   m_Name: Bank
   m_TagString: Untagged
@@ -559,7 +560,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6926069713710370106}
   m_CullTransparentMesh: 1
---- !u!114 &6412325502933518568
+--- !u!114 &-3268642085191151166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6926069713710370106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1f2b33df96b35149991d2b260ca3b45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyAmountText: {fileID: 8453965087235225890}
+--- !u!114 &2873675307888359512
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -571,8 +585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58eda221953fe974b895ed7623b26425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyToGainFromPurchase: {fileID: 0}
-  moneyAmount: {fileID: 8453965087235225890}
+  moneyToGainFromPurchase: 0
 --- !u!1 &8095218549867931263
 GameObject:
   m_ObjectHideFlags: 0

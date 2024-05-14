@@ -5,12 +5,19 @@ public class StorePopup : MonoBehaviour
 {
     [SerializeField]
     public GameObject spawnLocation;
-    [SerializeField] 
-    private Store storePref; 
+    [SerializeField]
+    private Store storePref;
     public static StorePopup Instance { get; private set; }
     private void Awake()
-    {       
-        Instance = this;
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
     public void OnClickSpawnStore()
     {

@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 505256871}
   - component: {fileID: 505256873}
   - component: {fileID: 505256872}
-  - component: {fileID: 505256874}
+  - component: {fileID: 505256875}
   m_Layer: 0
   m_Name: ProgressBar
   m_TagString: Untagged
@@ -533,7 +533,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505256870}
   m_CullTransparentMesh: 1
---- !u!114 &505256874
+--- !u!114 &505256875
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -542,12 +542,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 505256870}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f88811efce5862849b13edb3cc3dbb07, type: 3}
+  m_Script: {fileID: 11500000, guid: 926b9967cd6215848b85bcc51fb98767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentActivityPoints: 0
   progressBar: {fileID: 2093234345}
   currentActivityPointsText: {fileID: 720427518}
+  _currentSize: -450
+  currentActivityPoints: 0
 --- !u!1 &686280255
 GameObject:
   m_ObjectHideFlags: 0
@@ -2634,6 +2635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88ce44f58b960a34d806fade9545b49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chest: {fileID: 0}
   spawnCard: {fileID: -2794849748866416316, guid: 1b4eb98ad80d6194a9892f696ded9fbf, type: 3}
   cardConfigContainer:
   - {fileID: 11400000, guid: ef5a120fa24f19b418eec9b148eeab07, type: 2}
@@ -2653,11 +2655,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478f26c005d10394a8500d5562444c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectToPool: {fileID: -2794849748866416316, guid: 1b4eb98ad80d6194a9892f696ded9fbf, type: 3}
+  amountToPool: 2
   _pooledObjects: []
   oldBackgroundSprite: {fileID: 21300000, guid: ec7f51cae7d959640a926809652e964d, type: 3}
   oldAmountPanelSprite: {fileID: 21300000, guid: b4c46bd0f6d0bd744bed4050df4ad515, type: 3}
-  objectToPool: {fileID: -2794849748866416316, guid: 1b4eb98ad80d6194a9892f696ded9fbf, type: 3}
-  amountToPool: 2
 --- !u!1 &1945855024
 GameObject:
   m_ObjectHideFlags: 0
@@ -2957,8 +2959,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 486a28c26b69c0a47880c0293e5fc456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storePref: {fileID: 3327470320480681355, guid: 68f08bf3e209da644831ed4900bad88b, type: 3}
   spawnLocation: {fileID: 0}
+  storePref: {fileID: 3327470320480681355, guid: 68f08bf3e209da644831ed4900bad88b, type: 3}
 --- !u!114 &2093200895
 MonoBehaviour:
   m_ObjectHideFlags: 0

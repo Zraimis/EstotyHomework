@@ -2,17 +2,18 @@ using UnityEngine;
 
 public class ChestSpawner : MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField]
     private Chest spawnObject;
-    [SerializeField] 
+    [SerializeField]
     private ChestConfig[] chestConfigContainer;
-    [SerializeField] 
+    [SerializeField]
     private WatchAdForChest adForChest;
-    [SerializeField] 
+    [SerializeField]
     private Card card;
     private Chest _chest;
     private int _randomNumber;
     private ChestConfig _randomChest;
+
     private void Start()
     {
         SpawnChest(PlayerPrefs.GetInt("chestId"));
@@ -24,7 +25,6 @@ public class ChestSpawner : MonoBehaviour
     public void SpawnChest()
     {
         RandomNumber();
-
         _randomChest = chestConfigContainer[_randomNumber];
         _chest = Instantiate(spawnObject);
         _chest.id = _randomChest.id;
@@ -36,10 +36,9 @@ public class ChestSpawner : MonoBehaviour
         _chest.chestSpawner = this;
         _chest.chestClickArea.SetActive(false);
         adForChest.chest = _chest;
-        card.chest = _chest;
-
+        SpawnCards.Instance.chest = _chest;
+        ProgressBar.Instance._activityPointsToGet = _chest.activityPointsToGet;
         PlayerPrefs.SetInt("chestId", _chest.id);
-
     }
     private void SpawnChest(int id)
     {
@@ -53,6 +52,7 @@ public class ChestSpawner : MonoBehaviour
         _chest.chestSpawner = this;
         _chest.chestClickArea.SetActive(false);
         adForChest.chest = _chest;
-        card.chest = _chest;
+        SpawnCards.Instance.chest = _chest;
+        ProgressBar.Instance._activityPointsToGet = _chest.activityPointsToGet;
     }
 }

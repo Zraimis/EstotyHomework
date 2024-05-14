@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1934056803}
-  bankObj: {fileID: 6412325502933518568, guid: b92890a4eecaa0a4a967f0d00cdf6bbe, type: 3}
+  bankObj: {fileID: 2873675307888359512, guid: b92890a4eecaa0a4a967f0d00cdf6bbe, type: 3}
   eventSystem: {fileID: 468269977}
   cameraUI: {fileID: 1537736186}
 --- !u!1 &1537736184

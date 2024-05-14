@@ -4,22 +4,22 @@ using UnityEngine.UI;
 
 public class OnClickResetAll : MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField]
     private SpawnCards spawnCards;
-    [SerializeField] 
+    [SerializeField]
     private TMP_Text costAmount;
-    [SerializeField] 
+    [SerializeField]
     private Image backGround;
-    [SerializeField] 
+    [SerializeField]
     private GameObject moneyIcon;
-    [SerializeField] 
+    [SerializeField]
     private TimerReset timer;
     private int _costAmountInt;
     private bool _isFree = true;
 
     public void Awake()
     {
-        if(PlayerPrefs.GetInt("freeOrBuyable") == 0)
+        if (PlayerPrefs.GetInt("freeOrBuyable") == 0)
         {
             SetFree();
         }
@@ -38,9 +38,9 @@ public class OnClickResetAll : MonoBehaviour
         return _isFree ? true : false;
     }
 
-    public void SetFree() 
+    public void SetFree()
     {
-        _isFree = true; 
+        _isFree = true;
     }
     public void SetFalse()
     {
@@ -63,7 +63,7 @@ public class OnClickResetAll : MonoBehaviour
         else
         {
             SpawnNotEnoughMoneyPopUp.Instance.SpawnPopUp();
-        }       
+        }
     }
     public void SetFreeOrBuyable()
     {

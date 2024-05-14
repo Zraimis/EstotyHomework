@@ -3,7 +3,8 @@ using UnityEngine;
 public class SpawnNotEnoughMoneyPopUp : MonoBehaviour
 {
     public static SpawnNotEnoughMoneyPopUp Instance { get; private set; }
-
+    [SerializeField]
+    private NotEnoughMoney popUp;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -16,11 +17,10 @@ public class SpawnNotEnoughMoneyPopUp : MonoBehaviour
         }
     }
 
-    [SerializeField] 
-    private NotEnoughMoney popUp;
+   
     public void SpawnPopUp()
     {
         NotEnoughMoney s = Instantiate(popUp);
-        s.transform.SetParent(transform, false);     
+        s.transform.SetParent(transform, false);
     }
 }

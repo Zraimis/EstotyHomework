@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class SpawnSlots  : MonoBehaviour
+public class SpawnSlots : MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField]
     private Slot spawnObject;
     private int _slotCount = 2;
     void Start()
     {
-        for (int i = 0 ; i <= _slotCount; i++) 
+        for (int i = 0; i <= _slotCount; i++)
         {
             Slot slot = Instantiate(spawnObject);
             slot.transform.SetParent(transform, false);

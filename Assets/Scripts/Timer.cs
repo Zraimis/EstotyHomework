@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class TimerReset : MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField]
     private TMP_Text timerText;
-    [SerializeField] 
+    [SerializeField]
     private OnClickResetAll resetActivities;
-    [SerializeField] 
+    [SerializeField]
     private GameObject timer;
 
     private float _startTime = 100f;
@@ -22,30 +22,36 @@ public class TimerReset : MonoBehaviour
         {
             timer.SetActive(false);
         }
-        else 
+        else
         {
-            _timerTime = PlayerPrefs.GetFloat("timerTime"); 
-        }      
+            _timerTime = PlayerPrefs.GetFloat("timerTime");
+        }
     }
 
     void Update()
     {
-        if (_timerTime < 0f) 
-        {          
+        if (_timerTime < 0f)
+        {
             resetActivities.SetFree();
             timer.SetActive(false);
         }
         else
         {
             _timerTime -= Time.deltaTime;
-            _hours = TimeSpan.FromSeconds(_timerTime).Hours; 
-            _minutes = TimeSpan.FromSeconds(_timerTime).Minutes; 
+            _hours = TimeSpan.FromSeconds(_timerTime).Hours;
+            _minutes = TimeSpan.FromSeconds(_timerTime).Minutes;
             _seconds = TimeSpan.FromSeconds(_timerTime).Seconds;
 
-            timerText.text = $"New activities in: {_hours}h{_minutes}m{_seconds}s";
-            PlayerPrefs.SetFloat("timerTime",_timerTime);
-        }       
+            UpdateTimerUI();
+        }
     }
+
+    private void UpdateTimerUI()
+    {
+        timerText.text = $"New activities in: {_hours}h{_minutes}m{_seconds}s";
+        PlayerPrefs.SetFloat("timerTime", _timerTime);
+    }
+
     public void ResetTimer()
     {
         timer.SetActive(true);

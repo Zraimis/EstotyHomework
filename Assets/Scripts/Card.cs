@@ -9,40 +9,34 @@ public class Card : MonoBehaviour
     public int currentAmount;
     public int maxAmount;
     public int id;
-    [HideInInspector] 
+    [HideInInspector]
     public Chest chest;
-    [HideInInspector] 
+    [HideInInspector]
     public Image progressBar;
     [SerializeField]
     public Image background;
     [SerializeField]
     public Image amountPanel;
-    [SerializeField] 
+    [SerializeField]
     public TMP_Text progressText;
-    [SerializeField] 
+    [SerializeField]
     public GameObject glowBorder;
     [SerializeField]
     public Image logo;
     [SerializeField]
-    public TMP_Text cardTitle;  
-    [SerializeField] 
-    private Sprite newBackgroundSprite;   
-    [SerializeField] 
+    public TMP_Text cardTitle;
+    [SerializeField]
+    private Sprite newBackgroundSprite;
+    [SerializeField]
     private Sprite newAmountPanelSprite;
-    
+
     private void Update()
     {
         if (!isClaimable)
         {
             if (currentAmount >= maxAmount)
             {
-                isClaimable = true;
-                progressText.text = "CLAIM";
-                progressText.fontSize = 66;
-                progressText.color = new Color(0.75f, 0.35f, 0.015f);
-                glowBorder.SetActive(true);
-                background.sprite = newBackgroundSprite;
-                amountPanel.sprite = newAmountPanelSprite;
+                ChangeCardToClaimableState();
             }
             else
             {
@@ -51,20 +45,31 @@ public class Card : MonoBehaviour
         }
     }
 
+    private void ChangeCardToClaimableState()
+    {
+        isClaimable = true;
+        progressText.text = "CLAIM";
+        progressText.fontSize = 66;
+        progressText.color = new Color(0.75f, 0.35f, 0.015f);
+        glowBorder.SetActive(true);
+        background.sprite = newBackgroundSprite;
+        amountPanel.sprite = newAmountPanelSprite;
+    }
+
     public void OnCardClick()
     {
-        if (!isClaimable) 
+        if (!isClaimable)
         {
-            currentAmount = currentAmount + 5;      
+            currentAmount = currentAmount + 5;
         }
         else
-        {                       
+        {
             ProgressBar.Instance.ChangeTextOnClick(activityPoints);
-            ProgressBar.Instance.UpdateProgressBar(chest);                     
+            ProgressBar.Instance.UpdateProgressBar(chest);
             GridManager.Instance.UpdateGrid(id);
             ObjectPoolingManager.Instance.ResetPoolingCard();
             gameObject.SetActive(false);
-            
-        }          
+
+        }
     }
 }

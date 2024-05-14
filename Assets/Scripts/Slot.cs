@@ -2,6 +2,6 @@ using UnityEngine;
 
 public class Slot : MonoBehaviour
 {
-    [HideInInspector] 
+    [HideInInspector]
     public int id;
 }

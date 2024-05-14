@@ -3,18 +3,19 @@ using UnityEngine.SceneManagement;
 
 public class GameInitializer : MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField]
     private GameObject canvas;
-    [SerializeField] 
+    [SerializeField]
     private Bank bankObj;
-    [SerializeField] 
+    [SerializeField]
     private GameObject eventSystem;
-    [SerializeField] 
+    [SerializeField]
     private Camera cameraUI;
     private Bank bank;
     public void Awake()
     {
         GridManager gridManager = new GridManager();
+        ProgressBar progressBar = new ProgressBar();
         InstantiateBank();
         DontDestroyOnLoad(canvas);
         DontDestroyOnLoad(gameObject);

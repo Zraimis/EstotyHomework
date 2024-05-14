@@ -1,5 +1,5 @@
-using UnityEngine;
 using DG.Tweening;
+using UnityEngine;
 
 public class DotTweenButtonAnimation : MonoBehaviour
 {
@@ -10,6 +10,7 @@ public class DotTweenButtonAnimation : MonoBehaviour
     {
         ItemAnimation();
     }
+
     private void ItemAnimation()
     {
         int taskAmount = transform.GetSiblingIndex();

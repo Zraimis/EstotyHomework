@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class WatchAdForChest : MonoBehaviour
 {
-    [HideInInspector] 
+    [HideInInspector]
     public Chest chest;
     public void OnClickWatchAd()
     {
