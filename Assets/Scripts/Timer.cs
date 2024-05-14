@@ -12,6 +12,7 @@ public class TimerReset : MonoBehaviour
     private GameObject timer;
 
     private float _startTime = 100f;
+    // TODO consider using parse method which will return timer string and get rid of redundant fields
     private float _timerTime;
     private float _hours;
     private float _minutes;

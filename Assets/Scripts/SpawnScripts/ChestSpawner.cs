@@ -18,15 +18,19 @@ public class ChestSpawner : MonoBehaviour
     {
         SpawnChest(PlayerPrefs.GetInt("chestId"));
     }
+    // TODO get rid of _randomNubmer field and use method to receive random number
     private void RandomNumber()
     {
         _randomNumber = Random.Range(0, chestConfigContainer.Length);
     }
+    // TODO Whats the difference between SpawnChest methods, consider better naming?
+    // TODO Get rid of duplicate code
     public void SpawnChest()
     {
         RandomNumber();
         _randomChest = chestConfigContainer[_randomNumber];
         _chest = Instantiate(spawnObject);
+        // TODO all chest field should be set private
         _chest.id = _randomChest.id;
         _chest.transform.SetParent(transform, false);
         _chest.minMoney = _randomChest.minMoney;

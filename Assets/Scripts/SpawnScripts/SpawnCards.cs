@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO Class name should be noun not verb
 public class SpawnCards : MonoBehaviour
 {
     public static SpawnCards Instance;
@@ -15,6 +16,8 @@ public class SpawnCards : MonoBehaviour
     private List<int> _usedNumbers = new List<int>();
     private CardConfig _randomCard;
 
+    // TODO same as chest spawner
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)

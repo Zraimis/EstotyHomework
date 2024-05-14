@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// TODO Class name should be noun not verb
 public class SpawnSlots : MonoBehaviour
 {
     [SerializeField]

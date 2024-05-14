@@ -35,6 +35,7 @@ public class OnClickResetAll : MonoBehaviour
 
     public bool IsFree()
     {
+        // TODO redundant conditional ternary expression usage
         return _isFree ? true : false;
     }
 
@@ -47,6 +48,7 @@ public class OnClickResetAll : MonoBehaviour
         _isFree = false;
     }
 
+    // TODO Method never used
     public void OnClickReset()
     {
         _costAmountInt = 10;
@@ -73,6 +75,7 @@ public class OnClickResetAll : MonoBehaviour
             costAmount.transform.localPosition = new Vector3(-40f, 10f, 0f);
             backGround.color = new Color(0.05f, 0.7f, 0.35f);
             moneyIcon.SetActive(false);
+            // TODO consider making SaveManager which will manage data saving/loading
             PlayerPrefs.SetInt("freeOrBuyable", 0);
         }
         else

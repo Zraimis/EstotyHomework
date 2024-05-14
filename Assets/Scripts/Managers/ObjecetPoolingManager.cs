@@ -4,6 +4,7 @@ using UnityEngine;
 public class ObjectPoolingManager : MonoBehaviour
 {
     public static ObjectPoolingManager Instance { get; private set; }
+    // TODO Does these fields needs to be public?
     public Card objectToPool;
     public int amountToPool;
     [HideInInspector]
@@ -14,6 +15,7 @@ public class ObjectPoolingManager : MonoBehaviour
     private Sprite oldAmountPanelSprite;
     private Card poolCard;
 
+    // TODO missing private modifier
     void Awake()
     {
         GridManager.Instance.ClearGridCards();
@@ -24,6 +26,7 @@ public class ObjectPoolingManager : MonoBehaviour
         _pooledObjects = new List<Card>();
         for (int i = 0; i <= amountToPool; i++)
         {
+            // TODO SetParent can be combined with Instantiate
             poolCard = Instantiate(objectToPool);
             poolCard.gameObject.SetActive(false);
             poolCard.transform.SetParent(gameObject.transform, false);

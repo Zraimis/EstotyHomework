@@ -5,6 +5,7 @@ public class PlayerControls : MonoBehaviour
 {
     [SerializeField]
     private InputActionReference moveActionToUse;
+    // TODO SerializeField attribute needed here?
     [SerializeField]
     private float _currentLocationX = -1000;
     private float _currentLocationZ = 0;

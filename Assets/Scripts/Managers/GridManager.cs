@@ -9,6 +9,7 @@ public class GridManager
         {
             return;
         }
+        // TODO "else" is redundant here
         else
         {
             Instance = this;
@@ -19,6 +20,7 @@ public class GridManager
     private List<Card> _cardBank = new List<Card>();
     private List<Slot> _slots = new List<Slot>();
 
+    // TODO AddCard would be better name
     public void GetCards(Card card)
     {
         _cards.Add(card);
@@ -37,6 +39,8 @@ public class GridManager
         _slots = new List<Slot>();
     }
 
+    
+    // TODO AddSlot would be better name
     public void GetSlots(Slot slot)
     {
         _slots.Add(slot);

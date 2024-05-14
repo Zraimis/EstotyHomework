@@ -30,8 +30,10 @@ public class Card : MonoBehaviour
     [SerializeField]
     private Sprite newAmountPanelSprite;
 
+    // TODO Update should not be used, call this method only when card should be updated
     private void Update()
     {
+        // TODO invert if statement to reduce nesting, see "early return" pattern
         if (!isClaimable)
         {
             if (currentAmount >= maxAmount)
@@ -60,6 +62,7 @@ public class Card : MonoBehaviour
     {
         if (!isClaimable)
         {
+            // TODO convert into compound assignment
             currentAmount = currentAmount + 5;
         }
         else
