@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/GameplayScene.unity
     guid: 3c8938893d87e0b43a624e1dc8e57895
   - enabled: 1
-    path: Assets/Scenes/Scene1.unity
+    path: Assets/Scenes/DailyActivitiesScreen.unity
     guid: 905bccaf37bc00746bcf13a0ef875591
   - enabled: 0
     path: Assets/Scenes/Scene2.unity

@@ -1,18 +1,23 @@
+using EstotyHomework.Items;
+using EstotyHomework.Managers;
 using UnityEngine;
 
-public class SpawnSlots : MonoBehaviour
+namespace EstotyHomework.SpawnScripts
 {
-    [SerializeField]
-    private Slot spawnObject;
-    private int _slotCount = 2;
-    void Start()
+    public class SpawnSlots : MonoBehaviour
     {
-        for (int i = 0; i <= _slotCount; i++)
+        [SerializeField]
+        private Slot spawnObject;
+        private int _slotCount = 2;
+        void Start()
         {
-            Slot slot = Instantiate(spawnObject);
-            slot.transform.SetParent(transform, false);
-            slot.id = i;
-            GridManager.Instance.GetSlots(slot);
+            for (int i = 0; i <= _slotCount; i++)
+            {
+                Slot slot = Instantiate(spawnObject);
+                slot.transform.SetParent(transform, false);
+                slot.id = i;
+                GridManager.Instance.GetSlots(slot);
+            }
         }
     }
 }

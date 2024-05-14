@@ -1,16 +1,19 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManagerScript : MonoBehaviour
+namespace EstotyHomework.Managers
 {
-    [SerializeField]
-    private string sceneName;
-    public void LoadScene()
+    public class SceneManagerScript : MonoBehaviour
     {
-        SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-    }
-    public void UnloadScene()
-    {
-        SceneManager.UnloadSceneAsync(2);
+        [SerializeField]
+        private string sceneName;
+        public void LoadScene()
+        {
+            SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        }
+        public void UnloadScene()
+        {
+            SceneManager.UnloadSceneAsync(2);
+        }
     }
 }

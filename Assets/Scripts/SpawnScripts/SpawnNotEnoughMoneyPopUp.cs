@@ -1,26 +1,30 @@
+using EstotyHomework.PopUps;
 using UnityEngine;
 
-public class SpawnNotEnoughMoneyPopUp : MonoBehaviour
+namespace EstotyHomework.SpawnScripts
 {
-    public static SpawnNotEnoughMoneyPopUp Instance { get; private set; }
-    [SerializeField]
-    private NotEnoughMoney popUp;
-    private void Awake()
+    public class SpawnNotEnoughMoneyPopUp : MonoBehaviour
     {
-        if (Instance != null && Instance != this)
+        public static SpawnNotEnoughMoneyPopUp Instance { get; private set; }
+        [SerializeField]
+        private NotEnoughMoney popUp;
+        private void Awake()
         {
-            Destroy(this);
+            if (Instance != null && Instance != this)
+            {
+                Destroy(this);
+            }
+            else
+            {
+                Instance = this;
+            }
         }
-        else
-        {
-            Instance = this;
-        }
-    }
 
-   
-    public void SpawnPopUp()
-    {
-        NotEnoughMoney s = Instantiate(popUp);
-        s.transform.SetParent(transform, false);
+
+        public void SpawnPopUp()
+        {
+            NotEnoughMoney s = Instantiate(popUp);
+            s.transform.SetParent(transform, false);
+        }
     }
 }

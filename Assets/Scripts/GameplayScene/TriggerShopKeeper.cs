@@ -1,21 +1,25 @@
+using EstotyHomework.SpawnScripts;
 using UnityEngine;
 
-public class TriggerShopKeeper : MonoBehaviour
+namespace EstotyHomework.GameplayScene
 {
-    [SerializeField]
-    private GameObject canvas;
-    private void OnTriggerEnter(Collider other)
+    public class TriggerShopKeeper : MonoBehaviour
     {
-        canvas.SetActive(true);
-    }
+        [SerializeField]
+        private GameObject canvas;
+        private void OnTriggerEnter(Collider other)
+        {
+            canvas.SetActive(true);
+        }
 
-    private void OnTriggerExit(Collider other)
-    {
-        canvas.SetActive(false);
-    }
+        private void OnTriggerExit(Collider other)
+        {
+            canvas.SetActive(false);
+        }
 
-    public void OnShopKeeperItemClick()
-    {
-        StorePopup.Instance.OnClickSpawnStore();
+        public void OnShopKeeperItemClick()
+        {
+            StorePopup.Instance.OnClickSpawnStore();
+        }
     }
 }

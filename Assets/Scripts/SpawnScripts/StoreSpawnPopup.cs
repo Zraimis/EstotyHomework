@@ -1,29 +1,33 @@
 using DG.Tweening;
+using EstotyHomework.PopUps;
 using UnityEngine;
 
-public class StorePopup : MonoBehaviour
+namespace EstotyHomework.SpawnScripts
 {
-    [SerializeField]
-    public GameObject spawnLocation;
-    [SerializeField]
-    private Store storePref;
-    public static StorePopup Instance { get; private set; }
-    private void Awake()
+    public class StorePopup : MonoBehaviour
     {
-        if (Instance != null && Instance != this)
+        [SerializeField]
+        public GameObject spawnLocation;
+        [SerializeField]
+        private Store storePref;
+        public static StorePopup Instance { get; private set; }
+        private void Awake()
         {
-            Destroy(this);
+            if (Instance != null && Instance != this)
+            {
+                Destroy(this);
+            }
+            else
+            {
+                Instance = this;
+            }
         }
-        else
+        public void OnClickSpawnStore()
         {
-            Instance = this;
+            Store store = Instantiate(storePref);
+            store.transform.SetParent(spawnLocation.transform, false);
+            store.transform.localScale = Vector3.zero;
+            store.transform.DOScale(1f, 0.25f);
         }
-    }
-    public void OnClickSpawnStore()
-    {
-        Store store = Instantiate(storePref);
-        store.transform.SetParent(spawnLocation.transform, false);
-        store.transform.localScale = Vector3.zero;
-        store.transform.DOScale(1f, 0.25f);
     }
 }

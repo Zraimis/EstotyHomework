@@ -1,20 +1,22 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class DotTweenButtonAnimation : MonoBehaviour
+namespace EstotyHomeWork.AnimationScripts
 {
-    [SerializeField]
-    private float _fadeTime;
-
-    private void Start()
+    public class DotTweenButtonAnimation : MonoBehaviour
     {
-        ItemAnimation();
-    }
+        [SerializeField]
+        private float _fadeTime;
 
-    private void ItemAnimation()
-    {
-        int taskAmount = transform.GetSiblingIndex();
-        transform.localScale = Vector3.zero;
-        transform.DOScale(1f, _fadeTime).SetEase(Ease.OutBounce);
+        private void Start()
+        {
+            ItemAnimation();
+        }
+
+        private void ItemAnimation()
+        {
+            transform.localScale = Vector3.zero;
+            transform.DOScale(1f, _fadeTime).SetEase(Ease.OutBounce);
+        }
     }
 }
