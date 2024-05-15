@@ -1,6 +1,7 @@
 using EstotyHomework.Items;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace EstotyHomework.Managers
 {
@@ -10,47 +11,45 @@ namespace EstotyHomework.Managers
         public static ObjectPoolingManager Instance { get; private set; }
         public Card objectToPool;
         public int amountToPool;
-        [HideInInspector]
-        public List<Card> _pooledObjects;
+        [FormerlySerializedAs("_pooledObjects")] [HideInInspector]
+        public List<Card> pooledObjects;
         [SerializeField]
         private Sprite oldBackgroundSprite;
         [SerializeField]
         private Sprite oldAmountPanelSprite;
         private Card poolCard;
-
-        // TODO missing private modifier
-        void Awake()
+        
+        private void Awake()
         {
             GridManager.Instance.ClearGridCards();
             Instance = this;
         }
         public void Start()
         {
-            _pooledObjects = new List<Card>();
+            pooledObjects = new List<Card>();
             for (int i = 0; i <= amountToPool; i++)
             {
                 // TODO SetParent can be combined with Instantiate
-                poolCard = Instantiate(objectToPool);
+                poolCard = Instantiate(objectToPool, gameObject.transform, false);
                 poolCard.gameObject.SetActive(false);
-                poolCard.transform.SetParent(gameObject.transform, false);
-                _pooledObjects.Add(poolCard);
-                GridManager.Instance.GetCards(poolCard);
+                pooledObjects.Add(poolCard);
+                GridManager.Instance.AddCard(poolCard);
             }
         }
         public Card GetPooledObject()
         {
             for (int i = 0; i <= amountToPool; i++)
             {
-                if (!_pooledObjects[i].gameObject.activeInHierarchy)
+                if (!pooledObjects[i].gameObject.activeInHierarchy)
                 {
-                    return _pooledObjects[i];
+                    return pooledObjects[i];
                 }
             }
             return null;
         }
         public void ResetPoolingCard()
         {
-            foreach (Card foundCard in _pooledObjects)
+            foreach (Card foundCard in pooledObjects)
             {
                 foundCard.glowBorder.SetActive(false);
                 foundCard.background.sprite = oldBackgroundSprite;

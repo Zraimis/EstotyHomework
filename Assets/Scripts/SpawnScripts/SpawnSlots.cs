@@ -8,15 +8,16 @@ namespace EstotyHomework.SpawnScripts
     {
         [SerializeField]
         private Slot spawnObject;
-        private int _slotCount = 2;
-        void Start()
+
+        private const int SlotCount = 2;
+
+        private void Start()
         {
-            for (int i = 0; i <= _slotCount; i++)
+            for (int i = 0; i <= SlotCount; i++)
             {
-                Slot slot = Instantiate(spawnObject);
-                slot.transform.SetParent(transform, false);
+                Slot slot = Instantiate(spawnObject, transform, false);
                 slot.id = i;
-                GridManager.Instance.GetSlots(slot);
+                GridManager.Instance.AddSlot(slot);
             }
         }
     }

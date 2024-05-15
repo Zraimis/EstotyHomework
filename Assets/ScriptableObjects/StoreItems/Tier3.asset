@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee6b8b6bcd687e498b8b9df14c1d87d, type: 3}
   m_Name: Tier3
   m_EditorClassIdentifier: 
-  MoneyIcon: {fileID: 21300000, guid: 1713362027eef4643b853bfb4230807f, type: 3}
-  FirstBuyAmount: 100
-  DefaultBuyAmount: 50
-  BuyCost: 5.99
-  Discount: 100
+  <MoneyIcon>k__BackingField: {fileID: 21300000, guid: 1713362027eef4643b853bfb4230807f, type: 3}
+  <FirstBuyAmount>k__BackingField: 160
+  <DefaultBuyAmount>k__BackingField: 80
+  <BuyCost>k__BackingField: 4.99
+  <Discount>k__BackingField: 100

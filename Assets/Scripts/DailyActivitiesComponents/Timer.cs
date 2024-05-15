@@ -14,13 +14,14 @@ namespace EstotyHomework.DailyActivitiesComponents
         [SerializeField]
         private GameObject timer;
 
-        private float _startTime = 100f;
+        private readonly float _startTime = 100f;
         // TODO consider using parse method which will return timer string and get rid of redundant fields
         private float _timerTime;
         private float _hours;
         private float _minutes;
         private float _seconds;
-        void Start()
+
+        private void Start()
         {
             if (resetActivities.IsFree())
             {
@@ -32,7 +33,7 @@ namespace EstotyHomework.DailyActivitiesComponents
             }
         }
 
-        void Update()
+        private void Update()
         {
             if (_timerTime < 0f)
             {

@@ -1,5 +1,8 @@
+using System;
+using EstotyHomework.Configs;
 using EstotyHomework.Managers;
 using EstotyHomework.DailyActivitiesComponents;
+using EstotyHomework.SpawnScripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,24 +36,20 @@ namespace EstotyHomework.Items
         private Sprite newBackgroundSprite;
         [SerializeField]
         private Sprite newAmountPanelSprite;
+        
 
-        // TODO Update should not be used, call this method only when card should be updated
-        private void Update()
+        public void UpdateCardData(CardConfig cardData)
         {
-            if (!isClaimable)
-            {
-                // TODO invert if statement to reduce nesting, see "early return" pattern
-                if (currentAmount >= maxAmount)
-                {
-                    ChangeCardToClaimableState();
-                }
-                else
-                {
-                    progressText.text = $"{currentAmount}/{maxAmount}";
-                }
-            }
+            logo.sprite = cardData.LogoSprite;
+            activityPoints = cardData.ActivityPoints;
+            currentAmount = cardData.CurrentAmount;
+            maxAmount = cardData.MaxAmount;
+            cardTitle.text = cardData.CardTitle;
+            isClaimable = cardData.IsClaimable;
+            id = SpawnCards.Instance.currentSlot;
+            progressText.text = $"{currentAmount}/{maxAmount}";
+            gameObject.SetActive(true);
         }
-
         private void ChangeCardToClaimableState()
         {
             isClaimable = true;
@@ -66,8 +65,16 @@ namespace EstotyHomework.Items
         {
             if (!isClaimable)
             {
-                // TODO convert into compound assignment
-                currentAmount = currentAmount + 5;
+                currentAmount += 5;
+                if (currentAmount >= maxAmount)
+                {
+                    ChangeCardToClaimableState();
+                }
+                else
+                {
+                    progressText.text = $"{currentAmount}/{maxAmount}";
+
+                }
             }
             else
             {

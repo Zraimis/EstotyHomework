@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c53c829f819cbdf45993fb25eef2a65e, type: 3}
   m_Name: KillMonsters
   m_EditorClassIdentifier: 
-  logoSprite: {fileID: 21300000, guid: f2133470565018e4db1c0d1a5864249c, type: 3}
-  activityPoints: 25
-  currentAmount: 0
-  maxAmount: 50
-  cardTitle: Kill Monsters
-  isClaimable: 0
+  <LogoSprite>k__BackingField: {fileID: 21300000, guid: f2133470565018e4db1c0d1a5864249c, type: 3}
+  <ActivityPoints>k__BackingField: 25
+  <CurrentAmount>k__BackingField: 0
+  <MaxAmount>k__BackingField: 50
+  <CardTitle>k__BackingField: KILL MONSTERS
+  <IsClaimable>k__BackingField: 0

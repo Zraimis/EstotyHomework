@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c53c829f819cbdf45993fb25eef2a65e, type: 3}
   m_Name: RefiineResources
   m_EditorClassIdentifier: 
-  logoSprite: {fileID: 21300000, guid: 6e99a6bece7bcaa41bbbf26d4f0c0a55, type: 3}
-  activityPoints: 25
-  currentAmount: 0
-  maxAmount: 250
-  cardTitle: Refine Resources
-  isClaimable: 0
+  <LogoSprite>k__BackingField: {fileID: 21300000, guid: 6e99a6bece7bcaa41bbbf26d4f0c0a55, type: 3}
+  <ActivityPoints>k__BackingField: 25
+  <CurrentAmount>k__BackingField: 0
+  <MaxAmount>k__BackingField: 250
+  <CardTitle>k__BackingField: REFINE RESOURCES
+  <IsClaimable>k__BackingField: 0

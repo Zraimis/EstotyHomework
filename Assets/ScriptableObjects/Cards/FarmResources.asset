@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c53c829f819cbdf45993fb25eef2a65e, type: 3}
   m_Name: FarmResources
   m_EditorClassIdentifier: 
-  logoSprite: {fileID: 21300000, guid: 19e402a0d1ee065449d741fc05fe1c80, type: 3}
-  activityPoints: 25
-  currentAmount: 0
-  maxAmount: 1500
-  cardTitle: Farm Resources
-  isClaimable: 0
+  <LogoSprite>k__BackingField: {fileID: 21300000, guid: 19e402a0d1ee065449d741fc05fe1c80, type: 3}
+  <ActivityPoints>k__BackingField: 25
+  <CurrentAmount>k__BackingField: 0
+  <MaxAmount>k__BackingField: 1500
+  <CardTitle>k__BackingField: FARM RESOURCES
+  <IsClaimable>k__BackingField: 0

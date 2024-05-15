@@ -1,3 +1,5 @@
+using EstotyHomework.Configs;
+using EstotyHomework.DailyActivitiesButtons;
 using EstotyHomework.SpawnScripts;
 using EstotyHomework.UI_Overlay;
 using UnityEngine;
@@ -16,16 +18,24 @@ namespace EstotyHomework.DailyActivitiesComponents
         public int minMoney;
         public int maxMoney;
         public int activityPointsToGet;
-        public int id;
         private int random;
 
-        public void Start()
+        public void SetUp(ChestConfig chestData)
         {
+            minMoney = chestData.MinMoney;
+            maxMoney = chestData.MaxMoney;
+            random = Random.Range(minMoney, maxMoney);
+            chestImage.color = new Color(chestData.Color.r, chestData.Color.g, chestData.Color.b, 0.65f);
+            activityPointsToGet = chestData.ActivityPointsToGet;
+            chestSpawner = ChestSpawner.Instance;
+            chestClickArea.SetActive(false);
+            WatchAdForChestButton.Instance.chest = this;
+            SpawnCards.Instance.chest = this;
+            ProgressBar.Instance.ActivityPointsToGet = activityPointsToGet;
             if (PlayerPrefs.GetInt("ChestUnlocked") == 1)
             {
                 ChestUnlock();
             }
-            random = Random.Range(minMoney, maxMoney);
         }
 
         public void ChestClick()

@@ -40,15 +40,15 @@ namespace EstotyHomework.DailyActivitiesButtons
 
         public bool IsFree()
         {
-            // TODO redundant conditional ternary expression usage
-            return _isFree ? true : false;
+            return _isFree;
         }
 
         public void SetFree()
         {
             _isFree = true;
         }
-        public void SetFalse()
+
+        private void SetFalse()
         {
             _isFree = false;
         }
@@ -71,7 +71,7 @@ namespace EstotyHomework.DailyActivitiesButtons
                 SpawnNotEnoughMoneyPopUp.Instance.SpawnPopUp();
             }
         }
-        public void SetFreeOrBuyable()
+        private void SetFreeOrBuyable()
         {
             if (_isFree)
             {

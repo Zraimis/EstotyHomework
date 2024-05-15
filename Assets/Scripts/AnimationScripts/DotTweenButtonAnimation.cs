@@ -1,6 +1,5 @@
 using DG.Tweening;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 namespace EstotyHomeWork.AnimationScripts
 {
@@ -8,8 +7,7 @@ namespace EstotyHomeWork.AnimationScripts
     public class DotTweenButtonAnimation : MonoBehaviour
     { 
     [SerializeField]
-    // TODO naming: Unity serialized fields are considered exceptions and _ MUST be removed
-    private float _fadeTime;
+    private float fadeTime;
 
     private void Start()
     {
@@ -18,7 +16,7 @@ namespace EstotyHomeWork.AnimationScripts
     private void ItemAnimation()
     {
         transform.localScale = Vector3.zero;
-        transform.DOScale(1f, _fadeTime).SetEase(Ease.OutBounce);
+        transform.DOScale(1f, fadeTime).SetEase(Ease.OutBounce);
     }
     }
 }

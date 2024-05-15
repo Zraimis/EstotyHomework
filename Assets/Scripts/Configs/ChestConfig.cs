@@ -5,10 +5,15 @@ namespace EstotyHomework.Configs
     [CreateAssetMenu(fileName = "New chest", menuName = "Chest")]
     public class ChestConfig : ScriptableObject
     {
-        public int minMoney;
-        public int maxMoney;
-        public int activityPointsToGet;
-        public Color color;
-        public int id;
+        [field:SerializeField]
+        public int MinMoney { get; private set; }
+        [field:SerializeField]
+        public int MaxMoney { get; private set; }
+        [field:SerializeField]
+        public int ActivityPointsToGet { get; private set; }
+        [field:SerializeField]
+        public Color Color{ get; private set; }
+        [field:SerializeField]
+        public int ID{ get; private set; }
     }
 }

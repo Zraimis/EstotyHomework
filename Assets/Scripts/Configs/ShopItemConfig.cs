@@ -5,10 +5,15 @@ namespace EstotyHomework.Configs
     [CreateAssetMenu(fileName = "New StoreItem", menuName = "StoreItem")]
     public class ShopConfig : ScriptableObject
     {
-        public Sprite MoneyIcon;
-        public int FirstBuyAmount;
-        public int DefaultBuyAmount;
-        public float BuyCost;
-        public int Discount;
+        [field:SerializeField]
+        public Sprite MoneyIcon { get; private set; }
+        [field:SerializeField]
+        public int FirstBuyAmount { get; private set; }
+        [field:SerializeField]
+        public int DefaultBuyAmount { get; private set; }
+        [field:SerializeField]
+        public float BuyCost { get; private set; }
+        [field:SerializeField]
+        public int Discount { get; private set; }
     }
 }

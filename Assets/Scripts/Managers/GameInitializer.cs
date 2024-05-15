@@ -37,9 +37,7 @@ namespace EstotyHomework.Managers
         }
         private void InstantiateBank()
         {
-        // TODO SetParent can be combined with Instantiate
-            bank = Instantiate(bankObj);
-            bank.transform.SetParent(canvas.transform, false);
+            bank = Instantiate(bankObj, canvas.transform, false);
         }
     }
 }

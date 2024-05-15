@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a375df5894edf24390a580006875fcd, type: 3}
   m_Name: HardChest
   m_EditorClassIdentifier: 
-  minMoney: 100
-  maxMoney: 500
-  activityPointsToGet: 250
-  color: {r: 0.6886792, g: 0.3216002, b: 0.3216002, a: 1}
-  id: 1
+  <MinMoney>k__BackingField: 100
+  <MaxMoney>k__BackingField: 250
+  <ActivityPointsToGet>k__BackingField: 250
+  <Color>k__BackingField: {r: 1, g: 0.2688679, b: 0.2688679, a: 0}
+  <ID>k__BackingField: 1

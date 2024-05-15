@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c53c829f819cbdf45993fb25eef2a65e, type: 3}
   m_Name: ExchangeResources
   m_EditorClassIdentifier: 
-  logoSprite: {fileID: 21300000, guid: 8e34d6ec9aba93e46973090d99a2c17c, type: 3}
-  activityPoints: 25
-  currentAmount: 0
-  maxAmount: 500
-  cardTitle: Exchange Resources
-  isClaimable: 0
+  <LogoSprite>k__BackingField: {fileID: 21300000, guid: 8e34d6ec9aba93e46973090d99a2c17c, type: 3}
+  <ActivityPoints>k__BackingField: 25
+  <CurrentAmount>k__BackingField: 0
+  <MaxAmount>k__BackingField: 500
+  <CardTitle>k__BackingField: EXCHANGE RESOURCES
+  <IsClaimable>k__BackingField: 0

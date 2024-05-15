@@ -7,7 +7,7 @@ namespace EstotyHomework.SpawnScripts
     {
         public static SpawnNotEnoughMoneyPopUp Instance { get; private set; }
         [SerializeField]
-        private NotEnoughMoney popUp;
+        private NotEnoughMoneyPopup popUp;
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -19,12 +19,10 @@ namespace EstotyHomework.SpawnScripts
                 Instance = this;
             }
         }
-
-
+        
         public void SpawnPopUp()
         {
-            NotEnoughMoney s = Instantiate(popUp);
-            s.transform.SetParent(transform, false);
+            NotEnoughMoneyPopup s = Instantiate(popUp, transform, false);
         }
     }
 }

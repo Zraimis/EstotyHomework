@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace EstotyHomework.DailyActivitiesComponents
@@ -9,7 +10,7 @@ namespace EstotyHomework.DailyActivitiesComponents
         public static ProgressBar_UI Instance;
         public Image progressBar;
         public TMP_Text currentActivityPointsText;
-        public float _currentSize = -450;
+        public float currentSize = -450;
         public int currentActivityPoints;
 
         private void Awake()
@@ -30,28 +31,28 @@ namespace EstotyHomework.DailyActivitiesComponents
             currentActivityPointsText.text = currentActivityPoints.ToString();
             if(PlayerPrefs.GetFloat("currentSize") == 0)
             {
-                _currentSize = -450;
+                currentSize = -450;
             }
             else
             {
-                _currentSize = PlayerPrefs.GetFloat("currentSize");
+                currentSize = PlayerPrefs.GetFloat("currentSize");
             }           
-            progressBar.rectTransform.offsetMax = new Vector2(_currentSize, -5);
+            progressBar.rectTransform.offsetMax = new Vector2(currentSize, -5);
         }
 
         public void UpdateProgressBarUI()
         {
             currentActivityPointsText.text = currentActivityPoints.ToString();
-            progressBar.rectTransform.offsetMax = new Vector2(_currentSize, -5);
-            PlayerPrefs.SetFloat("currentSize", _currentSize);
+            progressBar.rectTransform.offsetMax = new Vector2(currentSize, -5);
+            PlayerPrefs.SetFloat("currentSize", currentSize);
             PlayerPrefs.SetInt("activityPoints", currentActivityPoints);
         }
 
         public void ResetProgressBarUI()
         {
-            _currentSize = -450;
-            progressBar.rectTransform.offsetMax = new Vector2(_currentSize, -5);
-            PlayerPrefs.SetFloat("currentSize", _currentSize);
+            currentSize = -450;
+            progressBar.rectTransform.offsetMax = new Vector2(currentSize, -5);
+            PlayerPrefs.SetFloat("currentSize", currentSize);
             UpdateProgressBarUI();
         }
     }

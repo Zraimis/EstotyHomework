@@ -1,5 +1,6 @@
 using EstotyHomework.Items;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EstotyHomework.Managers
 {
@@ -12,18 +13,13 @@ namespace EstotyHomework.Managers
             {
                 return;
             }
-            else
-            {
-            // TODO "else" is redundant here
-                Instance = this;
-            }
+            Instance = this;
         }
 
         private List<Card> _cards = new List<Card>();
         private List<Card> _cardBank = new List<Card>();
         private List<Slot> _slots = new List<Slot>();
-	 // TODO AddCard would be better name
-        public void GetCards(Card card)
+        public void AddCard(Card card)
         {
             _cards.Add(card);
             _cardBank.Add(card);
@@ -40,21 +36,18 @@ namespace EstotyHomework.Managers
             _cardBank = new List<Card>();
             _slots = new List<Slot>();
         }
-		// TODO AddSlot would be better name
-        public void GetSlots(Slot slot)
+
+        public void AddSlot(Slot slot)
         {
             _slots.Add(slot);
         }
 
         public void UpdateGrid(int id)
         {
-            foreach (Card card in _cards)
+            foreach (Card card in _cards.Where(card => card.id > id))
             {
-                if (card.id > id)
-                {
-                    card.transform.SetParent(_slots[card.id - 1].transform, false);
-                    card.id -= 1;
-                }
+                card.transform.SetParent(_slots[card.id - 1].transform, false);
+                card.id -= 1;
             }
         }
     }

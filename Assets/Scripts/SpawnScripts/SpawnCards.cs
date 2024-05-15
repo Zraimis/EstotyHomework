@@ -11,6 +11,7 @@ namespace EstotyHomework.SpawnScripts
     {
         public static SpawnCards Instance;
         public Chest chest;
+        public int currentSlot;
         [SerializeField]
         private Card spawnCard;
         [SerializeField]
@@ -18,9 +19,8 @@ namespace EstotyHomework.SpawnScripts
         private int _amountOfCardsOnScene = 2;
         private int _randomNumber;
         private int _amountOfCardsToSpawn;
-        private List<int> _usedNumbers = new List<int>();
+        private readonly List<int> _usedNumbers = new List<int>();
         private CardConfig _randomCard;
- // TODO same as chest spawner
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -37,33 +37,22 @@ namespace EstotyHomework.SpawnScripts
             _randomNumber = Random.Range(0, cardConfigContainer.Length);
         }
 
-        public void SpawnCardsOnSlots()
+        private void SpawnCardsOnSlots()
         {
-            for (int currentSlot = 0; currentSlot <= _amountOfCardsToSpawn; currentSlot++)
+            for ( currentSlot = 0; currentSlot <= _amountOfCardsToSpawn; currentSlot++)
             {
                 RandomNumber();
                 while (_usedNumbers.Contains(_randomNumber))
                 {
                     RandomNumber();
                 }
-                _usedNumbers.Add(_randomNumber);
 
+                _usedNumbers.Add(_randomNumber);
                 _randomCard = cardConfigContainer[_randomNumber];
                 Card card = ObjectPoolingManager.Instance.GetPooledObject();
-                if (card != null)
-                {
-                    card.transform.SetParent(transform.GetChild(currentSlot), false);
-                    card.logo.sprite = _randomCard.logoSprite;
-                    card.activityPoints = _randomCard.activityPoints;
-                    card.currentAmount = _randomCard.currentAmount;
-                    card.maxAmount = _randomCard.maxAmount;
-                    card.cardTitle.text = _randomCard.cardTitle;
-                    card.isClaimable = _randomCard.isClaimable;
-                    card.id = currentSlot;
-                    card.gameObject.SetActive(true);
-                    card.chest = chest;
-                }
-
+                card.transform.SetParent(transform.GetChild(currentSlot), false);
+                card.chest = chest;
+                card.UpdateCardData(_randomCard);
                 if (_usedNumbers.Count >= 3)
                 {
                     _usedNumbers.Clear();

@@ -24,8 +24,7 @@ namespace EstotyHomework.SpawnScripts
         }
         public void OnClickSpawnStore()
         {
-            Store store = Instantiate(storePref);
-            store.transform.SetParent(spawnLocation.transform, false);
+            Store store = Instantiate(storePref, spawnLocation.transform, false);
             store.transform.localScale = Vector3.zero;
             store.transform.DOScale(1f, 0.25f);
         }

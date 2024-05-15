@@ -1,14 +1,21 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New card", menuName = "Card")]
-public class CardConfig : ScriptableObject
+namespace EstotyHomework.Configs
 {
-    // TODO use private set properties for public fields which are set in the inspector better
-    // example. [field: SerializeField] public Sprite MoneyIcon { get; private set; }
-    public Sprite logoSprite;
-    public int activityPoints;
-    public int currentAmount;
-    public int maxAmount;
-    public string cardTitle;
-    public bool isClaimable;
+    [CreateAssetMenu(fileName = "New card", menuName = "Card")]
+    public class CardConfig : ScriptableObject
+    {
+        [field:SerializeField]
+        public Sprite LogoSprite { get; private set; }
+        [field:SerializeField]
+        public int ActivityPoints { get; private set; }
+        [field:SerializeField]
+        public int CurrentAmount { get; private set; }
+        [field:SerializeField]
+        public int MaxAmount { get; private set; }
+        [field:SerializeField]
+        public string CardTitle { get; private set; }
+        [field:SerializeField]
+        public bool IsClaimable { get; private set; }
+    }
 }

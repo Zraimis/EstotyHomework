@@ -9,7 +9,6 @@ namespace EstotyHomework.DailyActivitiesComponents
         {
             if (Instance != null && Instance != this)
             {
-                return;
             }
             else
             {
@@ -17,7 +16,7 @@ namespace EstotyHomework.DailyActivitiesComponents
             }
         }
         [HideInInspector]
-        public int _activityPointsToGet;
+        public int ActivityPointsToGet;
         private float _increaseProcent;
         private float _increase;
         private float _ap;
@@ -30,16 +29,14 @@ namespace EstotyHomework.DailyActivitiesComponents
         public void UpdateProgressBar(Chest chest, int activityPoints)
         {
             _ap = activityPoints;
-            _increaseProcent = _ap / _activityPointsToGet;
+            _increaseProcent = _ap / ActivityPointsToGet;
             _increase = 450 * _increaseProcent;
-            ProgressBar_UI.Instance._currentSize += _increase;         
+            ProgressBar_UI.Instance.currentSize += _increase;         
             ProgressBar_UI.Instance.currentActivityPoints += activityPoints;
             ProgressBar_UI.Instance.UpdateProgressBarUI();
-            if (ProgressBar_UI.Instance._currentSize >= 0f)
-            {
-                ResetProgessBar();
-                chest.ChestUnlock();
-            }
+            if (!(ProgressBar_UI.Instance.currentSize >= 0f)) return;
+            ResetProgessBar();
+            chest.ChestUnlock();
         }
     }
 }
